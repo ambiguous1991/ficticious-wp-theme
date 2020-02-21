@@ -32,8 +32,7 @@ get_header(); ?>
         <div class="text-center">
             <div class="section__title">MIŁO CIĘ TUTAJ WIDZIEĆ</div>
             <h3 class="p-3">Nazywam się Jakub Bartusiak</h3>
-            <div class="p-2">Jestem absolwentem Politechniki Wrocławskiej, świeżo upieczonym inżynierem o szerokich
-                zainteresowaniach.
+            <div class="p-2">Jestem absolwentem Politechniki Wrocławskiej i programistą o szerokich zainteresowaniach.
             </div>
             <div class="pt-2 pb-5">Staram się stale rozwijać swoje umiejętności i codziennie uczyć się czegoś nowego.
             </div>

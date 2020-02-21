@@ -6,6 +6,9 @@ body {
   background-color: $bg-light;
   color: $text-contrast-light;
   font-family: 'Open Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 h1,h2,h3 {

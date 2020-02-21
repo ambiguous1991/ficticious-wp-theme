@@ -25,7 +25,7 @@ get_header(); ?>
         </div>
     </header>
 
-    <div class="container">
+    <div class="container flex-grow-1">
         <div class="section text-justify">
             <div class="section__box rounded">
                     <h3 class="section__title">Przeglądaj</h3>

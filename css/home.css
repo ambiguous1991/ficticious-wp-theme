@@ -110,7 +110,7 @@ li.nav-item > ul {
 .footer__hashtag-cloud li {
   display: inline;
 }
-.footer .fab {
+.footer .fab, .footer .fas {
   font-size: 2rem;
 }
 
@@ -122,6 +122,9 @@ body {
   background-color: #fafafa;
   color: #212121;
   font-family: "Open Sans", sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 h1, h2, h3 {
