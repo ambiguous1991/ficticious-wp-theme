@@ -1,0 +1,41 @@
+@import "colors";
+@import "variables";
+
+.footer {
+  color: $dark;
+  padding: 40px 0;
+  background-color: #DDD;
+
+  &__title {
+    color: $black;
+  }
+
+  &__divider {
+    margin-bottom: 40px;
+    border: 0.5px solid $grey;
+  }
+
+  &__content {
+    margin: 2rem 0;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    color: $dark;
+  }
+
+  &__hashtag-cloud {
+    & li {
+      display:inline;
+    }
+  }
+
+  .fab {
+    font-size: 2rem;
+  }
+}
+
+.credits {
+  margin: 2rem 0;
+}

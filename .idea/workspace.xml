@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="05c6ad3e-0e3a-424e-b5bd-61e8e6b10da3" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP">
+    <include_path>
+      <path value="$USER_HOME$/Local Sites/bartusiak/app/public" />
+      <path value="$USER_HOME$/Local Sites/uni/app/public" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="1WtQkCJSq8FRedkLuAV5xH1xDcL" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/img" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Kuba\Google Drive\Workspaces\PhpStorm\ficticious\img" />
+      <recent name="D:\Kuba\Google Drive\Workspaces\PhpStorm\ficticious" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Kuba\Google Drive\Workspaces\PhpStorm\ficticious\css" />
+    </key>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="05c6ad3e-0e3a-424e-b5bd-61e8e6b10da3" name="Default Changelist" comment="" />
+      <created>1579966551861</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1579966551861</updated>
+      <workItem from="1579966553056" duration="6413000" />
+      <workItem from="1579989853588" duration="983000" />
+      <workItem from="1580054326865" duration="5140000" />
+      <workItem from="1580476830544" duration="36000" />
+      <workItem from="1580663878095" duration="8396000" />
+      <workItem from="1580756210693" duration="5422000" />
+      <workItem from="1580926505635" duration="2630000" />
+      <workItem from="1581012507651" duration="4847000" />
+      <workItem from="1581166786893" duration="3217000" />
+      <workItem from="1582134219460" duration="2069000" />
+      <workItem from="1582219432568" duration="4094000" />
+      <workItem from="1582228770783" duration="648000" />
+      <workItem from="1582304238428" duration="4968000" />
+      <workItem from="1582317127121" duration="3790000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="667" y="111" key="#PHP" timestamp="1580756227828">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="667" y="111" key="#PHP/0.0.1920.1040@0.0.1920.1040" timestamp="1580756227828" />
+    <state x="798" y="446" key="#WordPress" timestamp="1580756220029">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="798" y="446" key="#WordPress/0.0.1920.1040@0.0.1920.1040" timestamp="1580756220029" />
+    <state x="640" y="248" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1581016983564">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="640" y="248" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581016983564" />
+    <state x="594" y="299" key="EditFileWatcherDialog" timestamp="1579974946764">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="594" y="299" key="EditFileWatcherDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1579974946764" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1580476862842">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1580476862842" />
+    <state x="869" y="107" key="SettingsEditor" timestamp="1581014480650">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="869" y="107" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1581014480650" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1582135942819">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1582135942819" />
+  </component>
+  <component name="WordPressConfiguration" enabled="true">
+    <wordpressPath>C:\Users\satan\Local Sites\uni\app\public</wordpressPath>
+  </component>
+</project>
