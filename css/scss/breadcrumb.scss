@@ -1,0 +1,23 @@
+@import "colors";
+
+.breadcrumb {
+  background-color: $grey;
+  border-radius: 0 0 10px 10px;
+  margin: unset;
+  padding: unset;
+
+  .breadcrumb-item {
+    padding: 16px 32px;
+    position:relative;
+
+    &:first-child {
+      //color: $color-primary;
+      //background-color: $bg-dark;
+      border-bottom-left-radius: 10px;
+    }
+
+    &::before {
+      content: '\f0da';
+    }
+  }
+}

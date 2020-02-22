@@ -25,20 +25,39 @@ get_header(); ?>
         </div>
     </header>
 
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><i class="fas fa-home"></i></li>
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Library</li>
+            </ol>
+        </nav>
+    </div>
+
     <div class="container flex-grow-1">
-        <div class="section text-justify">
-            <div class="section__box rounded">
-                    <h3 class="section__title">Przeglądaj</h3>
-            </div>
+        <div class="section section--small-padding-top text-justify" >
+
             <?php
             while (have_posts()) {
                 the_post(); ?>
-                <div class="container">
+                <div class="container" style="order:1">
                     <h2>
                     </h2>
                     <?php the_content(); ?>
                 </div>
             <?php } ?>
+
+            <div class="section__box">
+                <a data-toggle="collapse" href="#box-collapse" aria-expanded="false" class="section__title">zobacz więcej <i class="fas fa-caret-down"></i></a>
+                <ul class="collapse list-group" id="box-collapse">
+                    <li class="list-group-item"><a href="#">Cras justo odio</a></li>
+                    <li class="list-group-item"><a href="#">Dapibus ac facilisis in</a></li>
+                    <li class="list-group-item"><a href="#">Morbi leo risus</a></li>
+                    <li class="list-group-item"><a href="#">Porta ac consectetur ac</a></li>
+                    <li class="list-group-item"><a href="#">Vestibulum at eros</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 <?php
