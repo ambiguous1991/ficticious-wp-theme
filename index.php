@@ -27,16 +27,17 @@ get_header(); ?>
 
     <div class="container">
         <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><i class="fas fa-home"></i></li>
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Library</li>
-            </ol>
+            <ul class="breadcrumb-container">
+                <li class="breadcrumb-container__item"><div class="breadcrumb-content"> <a href="/"><i class="fas fa-home"></i></a></div></li>
+                <li class="breadcrumb-container__item"><div class="breadcrumb-content"> <a href="#">Home</a></div></li>
+                <li class="breadcrumb-container__item active" aria-current="page"><div class="breadcrumb-content">Library</div></li>
+            </ul>
         </nav>
     </div>
 
     <div class="container flex-grow-1">
         <div class="section section--small-padding-top text-justify" >
+            <div class="bc"></div>
 
             <?php
             while (have_posts()) {
