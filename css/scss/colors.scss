@@ -4,13 +4,21 @@ $bg-dark: #212121;
 $text-contrast-light: $bg-dark;
 $text-contrast-dark: $bg-light;
 
-$color-primary: #ff670f;
-$color-violet-faded: #FAFFD8;
+$color-primary: #587B7F;
+$text-primary: $text-contrast-dark;
+
+$color-secondary: #8DAB7F;
+$text-secondary: $text-contrast-dark;
+
+$color-accent: #F7B32B;
+$text-accent: $text-contrast-light;
 
 $black: #000;
 $dark: #444;
 $dark-grey: #888;
 $grey: #CCC;
+
+$color-selection: #FF220C;
 
 $light-green: #cddc39;
 $light-green-contrast-light: #f9fbe7;

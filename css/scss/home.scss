@@ -5,12 +5,12 @@
 
 ::-moz-selection {
   color: $text-contrast-dark;
-  background: $color-primary;
+  background: $color-selection;
 }
 
 ::selection {
   color: $text-contrast-dark;
-  background: $color-primary;
+  background: $color-selection;
 }
 
 body {

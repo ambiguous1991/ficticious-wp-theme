@@ -1,5 +1,16 @@
 @import "colors";
 
+$bg-bcumb-first: $bg-dark;
+//$bg-bcumb-first: $bg-light;
+$fg-bcumb-first: $color-primary;
+//$fg-bcumb-first: $color-accent;
+
+$bg-bcumb-nth: $grey;
+$fg-bcumb-nth: $text-contrast-light;
+
+$bg-bcumb-last: $color-accent;
+$fg-bcumb-last: $text-contrast-light;
+
 .breadcrumb-container {
   display: flex;
   padding: unset;
@@ -8,13 +19,14 @@
   margin: unset;
   justify-content: center;
   flex-wrap: wrap;
+  color: $fg-bcumb-nth;
 
   @media (min-width: 768px) {
     justify-content: flex-end;
   }
 
   a{
-    color: #FFF;
+    color: $fg-bcumb-nth;
   }
 
   &__item {
@@ -23,17 +35,19 @@
     float: left;
     position: relative;
     z-index: 0;
-    background-color: $grey;
+    background-color: $bg-bcumb-nth;
 
     &:first-child {
-      background-color: $bg-dark;
+      background-color: $bg-bcumb-first;
       border-radius: 0 0 0 20px;
       padding-left: 12px;
+
       a {
-        color: $color-primary;
+        color: $fg-bcumb-first;
       }
+
       &::after {
-        border-left: 30px solid $bg-dark;
+        border-left: 30px solid $bg-bcumb-first;
       }
 
       &::before {
@@ -42,14 +56,15 @@
     }
 
     &:last-child{
-      background-color: $color-primary;
+      background-color: $bg-bcumb-last;
       border-radius: 0 0 20px 0;
       padding-right: 12px;
       margin-right: 0;
-      color: $text-contrast-dark;
+      color: $fg-bcumb-last;
+
       &::before {
-        border-top: 20px solid $color-primary;
-        border-bottom: 20px solid $color-primary;
+        border-top: 20px solid $bg-bcumb-last;
+        border-bottom: 20px solid $bg-bcumb-last;
       }
 
       &::after {
@@ -66,7 +81,7 @@
       height: 0;
       border-top: 20px solid transparent;
       border-bottom: 20px solid transparent;
-      border-left: 30px solid $grey;
+      border-left: 30px solid $bg-bcumb-nth;
       z-index: 1;
     }
 
@@ -77,8 +92,8 @@
       left: -30px;
       width: 0;
       height: 0;
-      border-top: 20px solid $grey;
-      border-bottom: 20px solid $grey;
+      border-top: 20px solid $bg-bcumb-nth;
+      border-bottom: 20px solid $bg-bcumb-nth;
       border-left: 30px solid transparent;
       z-index: 1;
     }
@@ -87,8 +102,4 @@
 
 .breadcrumb-content {
   padding: 8px 32px;
-
-  a {
-    color: $text-contrast-light;
-  }
 }
