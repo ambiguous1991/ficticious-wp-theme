@@ -28,7 +28,7 @@ get_header(); ?>
     <div class="container">
         <nav aria-label="breadcrumb">
             <ul class="breadcrumb-container">
-                <li class="breadcrumb-container__item"><div class="breadcrumb-content"> <a href="/"><i class="fas fa-home"></i></a></div></li>
+                <li class="breadcrumb-container__item"><div class="breadcrumb-content"> <a href="/"><i class="fas fa-home"></i><span>strona główna</span></a></div></li>
                 <li class="breadcrumb-container__item"><div class="breadcrumb-content"> <a href="#">Home</a></div></li>
                 <li class="breadcrumb-container__item active" aria-current="page"><div class="breadcrumb-content">Library</div></li>
             </ul>
@@ -37,7 +37,17 @@ get_header(); ?>
 
     <div class="container flex-grow-1">
         <div class="section section--small-padding-top text-justify" >
-            <div class="bc"></div>
+
+            <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-6"><small class="text-muted">opublikowano 2 marca 2020 r.</small></div>
+                <div class="col-12 col-md-6"><p class="blockquote-footer text-right">
+                        <span>Jakub Bartusiak</span>
+                        <i class="fas fa-user-circle"></i>
+                    </p>
+                </div>
+            </div>
+            </div>
 
             <?php
             while (have_posts()) {

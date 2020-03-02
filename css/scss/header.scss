@@ -39,9 +39,12 @@
     }
 
     h1 {
-      font-size: 4rem;
       font-family: 'Open Sans', sans-serif;
       letter-spacing: 3px;
+
+      @media (min-width: 768px) {
+        font-size: 4rem;
+      }
     }
   }
 
