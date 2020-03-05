@@ -64,6 +64,15 @@
   opacity: 1;
 }
 
+.navbar {
+  .container {
+    max-width: unset;
+    @media (min-width: 1200px) {
+      max-width: 1400px;
+    }
+  }
+}
+
 .navbar-expand-md .navbar-nav .dropdown-menu {
   @media (min-width: 768px) {
     position: fixed;

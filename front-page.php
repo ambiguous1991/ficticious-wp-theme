@@ -1,4 +1,6 @@
 <?php
+//powers the homepage
+
 get_header(); ?>
 
     <header class="header" style="background-image: url('<?php echo esc_url( get_theme_mod( 'ficticious_header_bg' ) ); ?>');">

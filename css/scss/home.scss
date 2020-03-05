@@ -131,6 +131,29 @@ h1 {
     padding-bottom: 24px;
   }
 
+  &--generic {
+    > div {
+      margin: $spacing*2 0;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-size: 1.75rem;
+    }
+
+    a {
+      color: $bg-dark;
+    }
+  }
+
+  &__author {
+    color: $color-primary;
+
+    a {
+      color: $color-primary;
+      font-weight: bolder;
+    }
+  }
+
   &__title {
     font-size: 1.5rem;
     margin-bottom: 24px;
