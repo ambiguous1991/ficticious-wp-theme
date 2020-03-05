@@ -1,5 +1,3 @@
-/* On document ready, prepare listeners*/
-
 const stickyOn = ({target}) => {
     const navbar = target.closest('.navbar');
     $(navbar).addClass('sticky');
