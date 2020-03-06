@@ -55,10 +55,10 @@ while (have_posts()) {
     <div class="section section--small-padding-top text-justify section--generic">
 
     <div class="container">
-        <div class="row">
+        <div class="row mb-3">
             <small class="text-muted">
                 opublikowano <?php the_time('j F Y'); ?> r. w
-                kategorii <?php echo get_the_category_list(', ') ?>
+                kategorii <strong><?php echo get_the_category_list(', ') ?></strong>
             </small>
         </div>
         <div class="row">

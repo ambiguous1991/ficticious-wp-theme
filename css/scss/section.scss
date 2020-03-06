@@ -1,0 +1,66 @@
+@import "colors";
+@import "variables";
+
+.section {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &--small-padding-top {
+    padding-top: 24px;
+  }
+
+  &--small-padding-bottom {
+    padding-bottom: 24px;
+  }
+
+  &--generic {
+    > div {
+      margin: $spacing*2 0;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-size: 1.75rem;
+    }
+
+    a {
+      color: $text-contrast-light;
+    }
+  }
+
+  &__author {
+    color: $color-primary;
+
+    a {
+      color: $color-primary;
+      font-weight: bolder;
+    }
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    margin-bottom: 24px;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  &__box {
+    text-align: center;
+    padding: 0 8px 12px 8px;
+    border-radius: 0;
+    order:2;
+
+    >a {
+      color: $color-primary;
+    }
+
+    @media (min-width: 768px) {
+      position: relative;
+      margin: 16px 32px;
+      padding: 12px 24px;
+      border-left: 4px solid $color-primary;
+      border-right: unset;
+    }
+  }
+}

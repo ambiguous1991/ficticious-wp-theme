@@ -54,7 +54,7 @@ get_header(); ?>
                     <div class="row">
                         <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
                     </div>
-                    <div class="row">
+                    <div class="row mb-2">
                         <small class="text-muted">
                             opublikowano <?php the_time('j F Y'); ?> r. w
                             kategorii <?php echo get_the_category_list(', ') ?>

@@ -1,0 +1,49 @@
+@import "colors";
+@import "variables";
+
+.cite {
+  font-style: italic;
+  font-weight: bold;
+
+  &:before {
+    content: '— ';
+  }
+}
+
+.wp-block-quote {
+  margin-left: $spacing;
+  margin-bottom: 2*$spacing;
+  padding: $spacing $spacing $spacing 2*$spacing;
+  border-left: 4px solid $grey;
+
+  cite {
+    @extend .cite;
+
+    color: $dark-grey;
+  }
+}
+
+.wp-block-pullquote {
+  color:$text-contrast-light;
+  background-color: $grey!important;
+  display: block;
+  flex-basis: 100%;
+  padding: 4*$spacing;
+
+  cite {
+    @extend .cite;
+    display: block;
+    text-align: right;
+  }
+}
+
+.wp-block-code {
+  display: block;
+  flex-basis: 100%;
+  padding: 2*$spacing;
+  border: 1px solid $dark-grey;
+}
+
+.wp-block-calendar{
+  flex-basis: 100%;
+}

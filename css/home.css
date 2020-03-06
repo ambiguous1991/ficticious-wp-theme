@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .header {
   background-position: center;
   background-size: cover;
@@ -232,6 +233,100 @@ li.nav-item > ul {
   padding: 4px 16px;
 }
 
+.section {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.section--small-padding-top {
+  padding-top: 24px;
+}
+.section--small-padding-bottom {
+  padding-bottom: 24px;
+}
+.section--generic > div {
+  margin: 16px 0;
+}
+.section--generic h1, .section--generic h2, .section--generic h3, .section--generic h4, .section--generic h5, .section--generic h6 {
+  font-size: 1.75rem;
+}
+.section--generic a {
+  color: #212121;
+}
+.section__author {
+  color: #587B7F;
+}
+.section__author a {
+  color: #587B7F;
+  font-weight: bolder;
+}
+.section__title {
+  font-size: 1.5rem;
+  margin-bottom: 24px;
+  font-family: "Montserrat", sans-serif;
+}
+.section__box {
+  text-align: center;
+  padding: 0 8px 12px 8px;
+  border-radius: 0;
+  order: 2;
+}
+.section__box > a {
+  color: #587B7F;
+}
+@media (min-width: 768px) {
+  .section__box {
+    position: relative;
+    margin: 16px 32px;
+    padding: 12px 24px;
+    border-left: 4px solid #587B7F;
+    border-right: unset;
+  }
+}
+
+.cite, .wp-block-pullquote cite, .wp-block-quote cite {
+  font-style: italic;
+  font-weight: bold;
+}
+.cite:before, .wp-block-pullquote cite:before, .wp-block-quote cite:before {
+  content: "— ";
+}
+
+.wp-block-quote {
+  margin-left: 8px;
+  margin-bottom: 16px;
+  padding: 8px 8px 8px 16px;
+  border-left: 4px solid #CCC;
+}
+.wp-block-quote cite {
+  color: #888;
+}
+
+.wp-block-pullquote {
+  color: #212121;
+  background-color: #CCC !important;
+  display: block;
+  flex-basis: 100%;
+  padding: 32px;
+}
+.wp-block-pullquote cite {
+  display: block;
+  text-align: right;
+}
+
+.wp-block-code {
+  display: block;
+  flex-basis: 100%;
+  padding: 16px;
+  border: 1px solid #888;
+}
+
+.wp-block-calendar {
+  flex-basis: 100%;
+}
+
 ::-moz-selection {
   color: #fafafa;
   background: #FF220C;
@@ -328,59 +423,6 @@ h1 {
   height: 25px;
   display: inline-block;
   border-radius: 100%;
-}
-
-.section {
-  padding-top: 80px;
-  padding-bottom: 80px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-.section--small-padding-top {
-  padding-top: 24px;
-}
-.section--small-padding-bottom {
-  padding-bottom: 24px;
-}
-.section--generic > div {
-  margin: 16px 0;
-}
-.section--generic h1, .section--generic h2, .section--generic h3, .section--generic h4, .section--generic h5, .section--generic h6 {
-  font-size: 1.75rem;
-}
-.section--generic a {
-  color: #212121;
-}
-.section__author {
-  color: #587B7F;
-}
-.section__author a {
-  color: #587B7F;
-  font-weight: bolder;
-}
-.section__title {
-  font-size: 1.5rem;
-  margin-bottom: 24px;
-  font-family: "Montserrat", sans-serif;
-}
-.section__box {
-  text-align: center;
-  padding: 0px 8px 12px 8px;
-  border-radius: 0;
-  order: 2;
-}
-.section__box > a {
-  color: #587B7F;
-}
-@media (min-width: 768px) {
-  .section__box {
-    position: relative;
-    margin: 16px 32px;
-    padding: 12px 24px;
-    border-left: 4px solid #587B7F;
-    border-right: unset;
-  }
 }
 
 .list-group-item {
