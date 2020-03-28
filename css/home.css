@@ -327,6 +327,94 @@ li.nav-item > ul {
   flex-basis: 100%;
 }
 
+.comments-area {
+  position: relative;
+  font-size: 0.9rem;
+}
+.comments-area .comments-title {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+.comments-area .comment-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 32px;
+}
+.comments-area .comment-list ul.children {
+  list-style: none;
+  margin-left: 8px;
+  border-left: 3px solid #CCC;
+  padding-left: 8px;
+}
+.comments-area li.comment > .comment-body {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+  padding: 0 16px;
+}
+.comments-area li.comment > .comment-body .comment-author {
+  order: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.comments-area li.comment > .comment-body .comment-author cite.fn {
+  font-style: normal;
+}
+.comments-area li.comment > .comment-body .comment-author img {
+  margin-right: 16px;
+}
+.comments-area li.comment > .comment-body .comment-author .says {
+  display: none;
+}
+.comments-area li.comment > .comment-body .comment-awaiting-moderation {
+  order: 2;
+  margin-bottom: 8px;
+  font-size: 0.75rem;
+  color: #888;
+  flex-basis: 100%;
+}
+.comments-area li.comment > .comment-body .comment-meta {
+  order: 3;
+  flex-grow: 1;
+  text-align: end;
+  margin-right: 16px;
+  align-self: center;
+}
+@media (max-width: 767px) {
+  .comments-area li.comment > .comment-body .comment-meta {
+    display: none;
+  }
+}
+.comments-area li.comment > .comment-body p {
+  order: 1;
+  flex-basis: 100%;
+}
+.comments-area li.comment > .comment-body .reply {
+  order: 3;
+  align-self: center;
+}
+.comments-area li.comment > .comment-body .reply a {
+  color: #F7B32B;
+}
+@media (max-width: 767px) {
+  .comments-area li.comment > .comment-body .reply {
+    text-align: end;
+    flex-grow: 1;
+  }
+}
+.comments-area .comment-respond .comment-reply-title {
+  font-size: 0.9rem;
+}
+.comments-area .comment-respond form .comment-form-comment {
+  display: flex;
+  flex-direction: column;
+}
+.comments-area .comment-respond form .comment-form-comment label {
+  flex-basis: 100%;
+}
+
 ::-moz-selection {
   color: #fafafa;
   background: #FF220C;

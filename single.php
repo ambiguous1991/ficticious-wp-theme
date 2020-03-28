@@ -71,7 +71,11 @@ while (have_posts()) {
             </div>
         </div>
     </div>
-<?php } ?>
+    <?php
+    if ( comments_open() || get_comments_number() ) :
+    comments_template();
+    endif;
+ } ?>
     </div>
     </div>
 <?php

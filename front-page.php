@@ -3,11 +3,14 @@
 
 get_header(); ?>
 
-    <header class="header" style="background-image: url('<?php echo esc_url( get_theme_mod( 'ficticious_header_bg' ) ); ?>');">
+    <header class="header"
+            style="background-image: url('<?php echo esc_url(get_theme_mod('ficticious_header_bg')); ?>');">
         <nav class="navbar navbar-expand-md navbar-dark fixed-top text-center">
             <div class="container">
-                <a class="navbar-brand" href="<?php echo site_url();?>"><h2><?php echo get_bloginfo('name'); ?></h2></a>
-                <button class="navbar-toggler p-2 pl-3 pr-3 align-items-center" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                <a class="navbar-brand" href="<?php echo site_url(); ?>"><h2><?php echo get_bloginfo('name'); ?></h2>
+                </a>
+                <button class="navbar-toggler p-2 pl-3 pr-3 align-items-center" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <small class="mr-3">rozwiń</small><i class="fas fa-angle-down"></i>
                 </button>
@@ -53,7 +56,9 @@ get_header(); ?>
                         towarzystwo, zarówno ze względów praktycznych (dobra jakość pracy), jak też towarzyskich
                         (niecodziennie - ale dobre poczucie humoru).</p>
                 </div>
-                <div class="col-12 col-lg-4 p-3"><img class="rounded-circle p-5 img-fluid" src="<?php echo get_theme_file_uri('img/me.jpg') ?>" alt="My picture"></div>
+                <div class="col-12 col-lg-4 p-3"><img class="rounded-circle p-5 img-fluid"
+                                                      src="<?php echo get_theme_file_uri('img/me.jpg') ?>"
+                                                      alt="My picture"></div>
                 <div class="col-12 col-lg-4 p-3">
                     <div>
                         <h4 class="font-weight-bold">JAVA / SPRING</h4>
@@ -69,7 +74,8 @@ get_header(); ?>
                     </div>
                     <div>
                         <h4 class="font-weight-bold">INNE</h4>
-                        <p>Kubernetes, MySQL, Oracle DB, Amazon Web Services, Jenkins, Maven, Gradle, Android SDK... wymieniać dalej? :)</p>
+                        <p>Kubernetes, MySQL, Oracle DB, Amazon Web Services, Jenkins, Maven, Gradle, Android SDK...
+                            wymieniać dalej? :)</p>
                     </div>
                 </div>
             </div>
@@ -78,22 +84,33 @@ get_header(); ?>
 
     <div class="section bg-green text-center">
         <div class="container-fluid">
-        <div class="section__title">Najnowsze wpisy na blogu</div>
-        <div class="row justify-content-center text-center">
-        <?php
-            while (have_posts()) {
-                the_post();?>
-                <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-                    <h2><a style="color:inherit; font-weight: bold" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-                    <div class="meta-box">
-                        <p>przez <?php the_author() ?></p>
+            <div class="section__title">Najnowsze wpisy na blogu</div>
+            <div class="row justify-content-center text-center">
+                <?php
+                $blogPosts = new WP_Query(array(
+                        'posts_per_page' => 5
+                    )
+                );
+
+                while ($blogPosts->have_posts()) {
+                    $blogPosts->the_post(); ?>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-2 mt-3 mb-3 p-3">
+                        <h2><a style="color:inherit; font-weight: bold"
+                               href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+                        <div class="meta-box">
+                            autor: <?php the_author_posts_link(); ?>
+                        </div>
+                        <div>
+                            <?php echo wp_trim_words(get_the_content(), 10) ?>
+                            <div>
+                                <small><a href="<?php the_permalink(); ?>"> czytaj dalej ></a></small>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <?php the_content();?>
-                    </div>
-                </div>
-        <?php } ?>
-        </div>
+                <?php }
+                wp_reset_postdata();
+                ?>
+            </div>
         </div>
     </div>
 <?php
