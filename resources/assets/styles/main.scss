@@ -1,0 +1,177 @@
+@import "scss/colors";
+@import "scss/header";
+@import "scss/footer";
+@import "scss/breadcrumb";
+@import "scss/section";
+@import "scss/wp-widgets";
+@import "scss/comments";
+
+::-moz-selection {
+  color: $text-contrast-dark;
+  background: $color-selection;
+}
+
+::selection {
+  color: $text-contrast-dark;
+  background: $color-selection;
+}
+
+body {
+  background-color: $bg-light;
+  color: $text-contrast-light;
+  font-family: 'Open Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+h1,h2,h3 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+  font-weight: bolder;
+}
+
+.sticky {
+  background-color: $bg-dark;
+  -webkit-box-shadow: 0 5px 10px 0 rgba(0,0,0,0.25);
+  -moz-box-shadow: 0 5px 10px 0 rgba(0,0,0,0.25);
+  box-shadow: 0 5px 10px 0 rgba(0,0,0,0.25);
+}
+
+.navbar {
+  transition: all 500ms;
+  padding: 10px 25px;
+}
+
+.navbar-brand {
+  font-size: 1rem;
+}
+
+.navbar-nav {
+  text-align: right;
+}
+
+.sections {
+  min-height: $section-size;
+
+  &__one {
+
+  }
+
+  &__two {
+
+  }
+}
+
+.dark {
+  background-color: $bg-dark;
+}
+
+.recent_posts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.post {
+  border-bottom: 1px solid #CCC;
+  margin: 1rem 2rem;
+  padding: 2rem 0;
+
+  &:last-child{
+    border-bottom: none;
+  }
+
+  &--dark {
+    background-color: $bg-dark;
+    color: $text-contrast-dark;
+    border-color: $text-contrast-dark;
+  }
+
+  &__title {
+    padding: 1rem;
+    font-family: "PT Sans", sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: right;
+
+    a {
+      color: $color-primary;
+    }
+  }
+
+  &__author {
+    text-align: right;
+    font-size: 0.9rem;
+    margin: 10px 0;
+    color: #333;
+
+    &-image {
+      width: 25px;
+      height: 25px;
+      display: inline-block;
+      border-radius: 100%;
+    }
+  }
+}
+
+
+
+.list-group {
+
+  &-item {
+    background-color: unset;
+    border: unset;
+    border-bottom: 1px solid $grey;
+
+    &:last-child {
+      border-bottom: unset;
+    }
+
+    a {
+      color: unset;
+      &:hover {
+        color: $color-primary;
+      }
+    }
+  }
+}
+
+.bg-green {
+  background-color: $light-green;
+  color: $light-green-contrast-dark;
+  a {
+    color: $light-green-contrast-dark;
+    text-decoration: underline;
+  }
+}
+
+.bg-dark {
+  background-color: $bg-dark;
+  color: $text-contrast-dark;
+}
+
+.bg-light {
+  background-color: $bg-light;
+  color: $text-contrast-light;
+}
+
+.thumbnail-icon {
+  height: 100px;
+  width: 100px;
+  margin: 0 auto 16px auto;
+  background-color: $bg-dark;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+
+  i.far {
+    font-size: 2.5rem;
+    color: #FFF;
+  }
+}

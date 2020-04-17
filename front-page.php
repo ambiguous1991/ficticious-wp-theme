@@ -97,6 +97,22 @@ get_header(); ?>
                 while ($blogPosts->have_posts()) {
                     $blogPosts->the_post(); ?>
                     <div class="col-12 col-sm-6 col-md-4 col-lg-2 mt-3 mb-3 p-3">
+                        <?php
+                            if (has_post_thumbnail()) {
+                                the_post_thumbnail(
+                                        array(100,100),
+                                        array('class'=>'rounded-circle',
+                                            'style'=>'margin-bottom: 16px;')
+                                );
+                            }
+                            else {
+                                ?>
+                                <div class="rounded-circle thumbnail-icon">
+                                    <i class="far fa-newspaper"></i>
+                                </div>
+                                <?php
+                            }
+                            ?>
                         <h2><a style="color:inherit; font-weight: bold"
                                href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
                         <div class="meta-box">
