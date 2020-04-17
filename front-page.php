@@ -59,7 +59,7 @@ get_header(); ?>
                         (niecodziennie - ale dobre poczucie humoru).</p>
                 </div>
                 <div class="col-12 col-lg-4 p-3"><img class="rounded-circle p-5 img-fluid"
-                                                      src="<?php echo get_theme_file_uri('img/me.jpg') ?>"
+                                                      src="<?php echo get_theme_file_uri('assets/img/me.jpg') ?>"
                                                       alt="My picture"></div>
                 <div class="col-12 col-lg-4 p-3">
                     <div>
