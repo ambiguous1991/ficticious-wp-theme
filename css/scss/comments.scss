@@ -8,12 +8,13 @@
   .comments-title {
     font-size: 1rem;
     margin-bottom: 1rem;
+    border-top: 1px dashed $grey;
+    padding-top: 4*$spacing;
   }
 
   .comment-list {
     list-style: none;
-    padding: 0;
-    margin-bottom: 4*$spacing;
+    padding: 0 0 4*$spacing 0;
 
     ul.children{
       list-style: none;
@@ -88,7 +89,12 @@
     }
   }
 
-  .comment-respond{
+  .comment-respond {
+    max-width: 90%;
+    margin: 0 auto 0 auto;
+    padding:32px 8px;
+    border-top: 1px dashed $grey;
+
     .comment-reply-title{
       font-size: 0.9rem;
     }

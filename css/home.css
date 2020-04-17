@@ -334,11 +334,12 @@ li.nav-item > ul {
 .comments-area .comments-title {
   font-size: 1rem;
   margin-bottom: 1rem;
+  border-top: 1px dashed #CCC;
+  padding-top: 32px;
 }
 .comments-area .comment-list {
   list-style: none;
-  padding: 0;
-  margin-bottom: 32px;
+  padding: 0 0 32px 0;
 }
 .comments-area .comment-list ul.children {
   list-style: none;
@@ -403,6 +404,12 @@ li.nav-item > ul {
     text-align: end;
     flex-grow: 1;
   }
+}
+.comments-area .comment-respond {
+  max-width: 90%;
+  margin: 0 auto 0 auto;
+  padding: 32px 8px;
+  border-top: 1px dashed #CCC;
 }
 .comments-area .comment-respond .comment-reply-title {
   font-size: 0.9rem;

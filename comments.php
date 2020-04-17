@@ -18,12 +18,10 @@ if (post_password_required())
 ?>
 
 <div class="comments-area">
-
     <?php if (have_comments()) : ?>
-        <div class="comments-title">
-            komentarze do '<?php echo get_the_title() ?>'
-        </div>
-
+        <h3 class="comments-title">
+            komentarze na tej stronie
+        </h3>
         <ul class="comment-list">
             <?php
             wp_list_comments(array(
@@ -33,7 +31,6 @@ if (post_password_required())
             ));
             ?>
         </ul><!-- .comment-list -->
-
         <?php
         // Are there comments to navigate through?
         if (get_comment_pages_count() > 1 && get_option('page_comments')) :
@@ -52,8 +49,44 @@ if (post_password_required())
     <?php endif; // have_comments() ?>
 
     <?php comment_form(array(
-        'class_submit' => 'btn btn-primary',
-        'comment_field' => '<div class="form-group"><textarea class="form-control" id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea></div>'
+        'fields' => array(
+            'author' =>
+                '<div class="form-group row">
+                    <label for="author" class="col-12 col-form-label col-md-3">Podpis *</label>
+                    <div class="col-12 col-md-9"><input class="form-control" id="author" name="author" type="text" value="" size="30" maxlength="245" required="required"></div>
+                </div>',
+            'email' =>
+                '<div class="form-group row">
+                    <label for="email" class="col-12 col-form-label col-md-3">Adres e-mail *</label>
+                    <div class="col-12 col-md-9"><input class="form-control" id="email" name="email" type="text" value="" size="30" maxlength="100" aria-describedby="email-notes" required="required"></div>
+                </div>',
+            'url' =>
+                '<div class="form-group row">
+                    <label for="url" class="col-12 col-form-label col-md-3">adres strony</label>
+                    <div class="col-12 col-md-9"><input class="form-control" id="url" name="url" type="text" value="" size="30" maxlength="200"></div>
+                </div>',
+            'cookies' =>
+                '<div class="form-group form-check">
+                    <input class="form-check-input" id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes">
+                    <label class="form-check-label" for="wp-comment-cookies-consent">Zapamiętaj moje dane w tej przeglądarce podczas pisania kolejnych komentarzy</label>
+                </div>'
+        ),
+        'class_submit' => 'btn btn-success btn-sm',
+        'comment_field' => '<div class="form-group"><textarea class="form-control" id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea></div>',
+        'submit_field' => '<p class="form-submit text-center">%1$s %2$s</p>'
     )); ?>
 
 </div><!-- #comments -->
+
+<script>
+    $(function () {
+        $('#commentform')
+            .parsley()
+            .on('field:validated', function () {
+                console.log('validation lala')
+            })
+            .on('form:submit', function () {
+                return false;
+            })
+    });
+</script>
