@@ -55,5 +55,61 @@ function ficticious_change_head_bg( $wp_customize ) {
         'section'  => 'ficticious_header_bg_section',
         'settings' => 'ficticious_header_bg',
     ) ) );
+
 }
 add_action('customize_register', 'ficticious_change_head_bg');
+
+function addSettingToSection ( $wp_customize, $setting_name, $setting_default, $setting_type, $setting_section, $label, $choices) {
+    $wp_customize->add_setting( $setting_name, array(
+        'default'=>$setting_default,
+    ) );
+    $wp_customize->add_control( $setting_name, array (
+        'label'=> __($label),
+        'type'=>$setting_type,
+        'section'=>$setting_section,
+        'choices'=>$choices
+    ));
+}
+
+function ficticious_homepage( $wp_customize ) {
+    $section_name = 'ficticious_section';
+    $wp_customize->add_section($section_name, array(
+        'title'=> 'Treść strony głównej',
+        'priority' => 10,
+        'description'=>'Określ treści, jakie mają być widoczne na stronie głównej'
+    ));
+
+    addSettingToSection(
+        $wp_customize,
+        'ficticious_headline',
+        'Jestem nagłówkiem',
+        'text',
+        $section_name,
+        'Tekst nagłówka',
+        null
+    );
+
+    addSettingToSection(
+        $wp_customize,
+        'ficticious_subheadline',
+        'Jestem nagłówkiem drugiego poziomu',
+        'text',
+        $section_name,
+        'Tekst nagłówka drugiego poziomu',
+        null
+    );
+
+    addSettingToSection(
+        $wp_customize,
+        'ficticious_header_buttons',
+        0,
+        'radio',
+        $section_name,
+        'Przyciski',
+        array (
+            0=>'wyłączone',
+            1=>'włączone'
+        )
+    );
+}
+add_action('customize_register', 'ficticious_homepage');

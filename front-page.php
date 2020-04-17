@@ -23,13 +23,15 @@ get_header(); ?>
         </nav>
 
         <div class="header__punchline">
-            <h1>I'm a header</h1>
-            <h2>I'm a subheader</h2>
+            <h1><?php echo get_theme_mod('ficticious_headline'); ?></h1>
+            <h2><?php echo get_theme_mod('ficticious_subheadline'); ?></h2>
             <!--<div>I'm a synopsis. Lorem ipsum away.</div>-->
-            <div class="header__buttons">
-                <button class="btn btn-primary ">I'm a button</button>
-                <button class="btn btn-secondary ">I'm also a button</button>
-            </div>
+            <?php if( get_theme_mod('ficticious_header_buttons') ) {?>
+                <div class="header__buttons">
+                    <button class="btn btn-primary ">I'm a button</button>
+                    <button class="btn btn-secondary ">I'm also a button</button>
+                </div>
+            <?php } ?>
         </div>
     </header>
 
