@@ -7,9 +7,8 @@ function files_to_include () {
     wp_enqueue_style('font-awesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css');
     wp_enqueue_style('bootstrap', '//stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css');
     wp_enqueue_style('fonts', '//fonts.googleapis.com/css?family=Montserrat:400,900|Open+Sans:400,700|Roboto+Condensed:400,700&display=swap&subset=latin-ext');
-    wp_enqueue_style('welcome-page-style', get_template_directory_uri() . '/assets/styles/main.css', false, '1.0', 'all');
-    wp_enqueue_script('parsley-js', get_theme_file_uri('/js/parsley.js'), ['jquery'], '2.9.2', true);
-    wp_enqueue_script('index-js', get_theme_file_uri('assets/scripts/main.js'), NULL, '1.0', true);
+    wp_enqueue_style('welcome-page-style', get_template_directory_uri() . '/resources/css/main.css', false, '1.0', 'all');
+    wp_enqueue_script('index-js', get_theme_file_uri('/resources/js/bundle.js'), NULL, '1.0', true);
 }
 
 add_action('wp_enqueue_scripts', 'files_to_include');

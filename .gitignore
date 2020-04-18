@@ -1,4 +1,4 @@
 .idea
-assets
-resources/node_modules/
+resources/
+webpack/node_modules/
 *.zip
