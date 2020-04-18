@@ -1,3 +1,4 @@
 .idea
 assets
 resources/node_modules/
+*.zip
