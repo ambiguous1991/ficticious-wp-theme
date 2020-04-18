@@ -92,10 +92,10 @@ if ($IS_SKILLS_ENABLED) { ?>
                     </div>
                 <?php } ?>
                 <div class="col-12 col-lg-4 p-3">
-                    <?php if($SKILLS_IMAGE) {?>
-                    <img class="rounded-circle p-5 img-fluid"
-                         src="<?php echo esc_url($SKILLS_IMAGE);?>"
-                         alt="My picture">
+                    <?php if ($SKILLS_IMAGE) { ?>
+                        <img class="rounded-circle p-5 img-fluid"
+                             src="<?php echo esc_url($SKILLS_IMAGE); ?>"
+                             alt="My picture">
                     <?php } ?>
                 </div>
                 <?php if ($SKILLS_ARRAY) { ?>
@@ -129,7 +129,8 @@ if ($IS_SKILLS_ENABLED) { ?>
 
                 while ($blogPosts->have_posts()) {
                     $blogPosts->the_post(); ?>
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-2 mt-3 mb-3 p-3">
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-2 mt-3 mb-3 p-3 section__post">
+                        <a class="post-thumbnail" href="<?php the_permalink(); ?>">
                         <?php
                         if (has_post_thumbnail()) {
                             the_post_thumbnail(
@@ -145,8 +146,8 @@ if ($IS_SKILLS_ENABLED) { ?>
                             <?php
                         }
                         ?>
-                        <h2><a style="color:inherit; font-weight: bold"
-                               href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+                        </a>
+                        <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
                         <div class="meta-box">
                             autor: <?php the_author_posts_link(); ?>
                         </div>

@@ -147,6 +147,9 @@ h1 {
   a {
     color: $light-green-contrast-dark;
     text-decoration: underline;
+    &:hover {
+      color: lighten($light-green-contrast-dark, 5%);
+    }
   }
 }
 
