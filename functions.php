@@ -1,6 +1,7 @@
 <?php
 
-function files_to_include () {
+function files_to_include()
+{
     wp_enqueue_script('jquery-3.4.1', '//code.jquery.com/jquery-3.4.1.min.js', NULL, NULL, true);
     wp_enqueue_script('popper-js', '//cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js', NULL, NULL, true);
     wp_enqueue_script('bootstrap-js', '//stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js', ['jquery', 'popper-js'], NULL, true);
@@ -13,7 +14,8 @@ function files_to_include () {
 
 add_action('wp_enqueue_scripts', 'files_to_include');
 
-function theme_features () {
+function theme_features()
+{
     add_theme_support('title-tag');
     register_nav_menu('header_menu', 'Header title menu');
     register_nav_menu('footer_media_location', 'Footer Social Media');
@@ -22,75 +24,82 @@ function theme_features () {
 add_action('after_setup_theme', 'theme_features');
 show_admin_bar(false);
 
-function register_navwalker(){
+function register_navwalker()
+{
     require_once get_template_directory() . '/class-wp-bootstrap-navwalker.php';
 }
-add_action( 'after_setup_theme', 'register_navwalker' );
+
+add_action('after_setup_theme', 'register_navwalker');
 add_theme_support('post-thumbnails');
 
-function generate_nav($theme_location, $dropdowns, $container='div', $containerClass='collapse navbar-collapse justify-content-end') {
+function generate_nav($theme_location, $dropdowns, $container = 'div', $containerClass = 'collapse navbar-collapse justify-content-end')
+{
     $menuArgs = array(
-        'theme_location'=>$theme_location,
+        'theme_location' => $theme_location,
         'depth' => $dropdowns ? 2 : 1,
-        'menu_class'=>'nav navbar-nav mr-0',
-        'container_class'=>$containerClass,
-        'container_id'=>'navbarSupportedContent',
-        'fallback_cb'=> 'WP_Bootstrap_Navwalker::fallback',
-        'walker'=> new WP_Bootstrap_Navwalker(),
-        'container'=>$container,
+        'menu_class' => 'nav navbar-nav mr-0',
+        'container_class' => $containerClass,
+        'container_id' => 'navbarSupportedContent',
+        'fallback_cb' => 'WP_Bootstrap_Navwalker::fallback',
+        'walker' => new WP_Bootstrap_Navwalker(),
+        'container' => $container,
     );
 
     return wp_nav_menu($menuArgs);
 }
 
-function ficticious_create_panel ( $wp_customize ){
+function ficticious_create_panel($wp_customize)
+{
     $wp_customize->add_panel('ficticious_panel', array(
-        'title'=>__('Motyw Ficticious'),
-        'description'=>'Ustawienia motywu',
-        'priority'=>20
+        'title' => __('Motyw Ficticious'),
+        'description' => 'Ustawienia motywu',
+        'priority' => 20
     ));
 }
+
 add_action('customize_register', 'ficticious_create_panel');
 
-function ficticious_change_head_bg( $wp_customize ) {
+function ficticious_change_head_bg($wp_customize)
+{
     include 'settings.php';
-    $wp_customize->add_section( 'ficticious_header_bg_section' , array(
-        'title'       => __( 'Tło nagłówka' ),
-        'priority'    => 40,
+    $wp_customize->add_section('ficticious_header_bg_section', array(
+        'title' => __('Tło nagłówka'),
+        'priority' => 40,
         'description' => 'Obraz wyświetlany w nagłówku strony',
-        'panel'=>'ficticious_panel'
-    ) );
-    $wp_customize->add_setting( $FICTICIOUS_HEADER_BACKGROUND_IMAGE );
-    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'ficticious_header_bg', array(
-        'label'    => __( 'Obraz tła' ),
-        'section'  => 'ficticious_header_bg_section',
+        'panel' => 'ficticious_panel'
+    ));
+    $wp_customize->add_setting($FICTICIOUS_HEADER_BACKGROUND_IMAGE);
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'ficticious_header_bg', array(
+        'label' => __('Obraz tła'),
+        'section' => 'ficticious_header_bg_section',
         'settings' => 'ficticious_header_bg',
-    ) ) );
-
+    )));
 }
 add_action('customize_register', 'ficticious_change_head_bg');
 
-function addSettingToSection ( $wp_customize, $setting_name, $setting_default, $setting_type, $setting_section, $label, $choices) {
-    $wp_customize->add_setting( $setting_name, array(
-        'default'=>$setting_default,
-    ) );
-    $wp_customize->add_control( $setting_name, array (
-        'label'=> __($label),
-        'type'=>$setting_type,
-        'section'=>$setting_section,
-        'choices'=>$choices
+function addSettingToSection($wp_customize, $setting_name, $setting_default, $setting_type, $setting_section, $label, $choices)
+{
+    $wp_customize->add_setting($setting_name, array(
+        'default' => $setting_default,
+    ));
+    $wp_customize->add_control($setting_name, array(
+        'label' => __($label),
+        'type' => $setting_type,
+        'section' => $setting_section,
+        'choices' => $choices
     ));
 }
 
-function ficticious_header($wp_customize ) {
+function ficticious_header($wp_customize)
+{
     include 'settings.php';
     $heading_section = 'heading_section';
-    $panel_name= 'ficticious_panel';
+    $panel_name = 'ficticious_panel';
 
     $wp_customize->add_section($heading_section, array(
-        'title'=> 'Treści w nagłówku',
-        'description'=>'Określ treści, jakie mają być widoczne w nagłówku strony',
-        'panel'=>$panel_name
+        'title' => 'Treści w nagłówku',
+        'description' => 'Określ treści, jakie mają być widoczne w nagłówku strony',
+        'panel' => $panel_name
     ));
 
     addSettingToSection(
@@ -120,9 +129,9 @@ function ficticious_header($wp_customize ) {
         'radio',
         $heading_section,
         'Przyciski',
-        array (
-            0=>'wyłączone',
-            1=>'włączone'
+        array(
+            0 => 'wyłączone',
+            1 => 'włączone'
         )
     );
 
@@ -166,17 +175,19 @@ function ficticious_header($wp_customize ) {
         null
     );
 }
+
 add_action('customize_register', 'ficticious_header');
 
-function ficticious_white_intro( $wp_customize ) {
+function ficticious_white_intro($wp_customize)
+{
     include 'settings.php';
     $intro_section = 'intro_section';
-    $panel_name= 'ficticious_panel';
+    $panel_name = 'ficticious_panel';
 
     $wp_customize->add_section($intro_section, array(
-        'title'=> 'Sekcja intro',
-        'description'=>'Określ treści, jakie mają być widoczne w sekcji intro',
-        'panel'=>$panel_name
+        'title' => 'Sekcja intro',
+        'description' => 'Określ treści, jakie mają być widoczne w sekcji intro',
+        'panel' => $panel_name
     ));
 
     addSettingToSection(
@@ -187,8 +198,8 @@ function ficticious_white_intro( $wp_customize ) {
         $intro_section,
         'Sekcja intro',
         array(
-            0=>'wyłączone',
-            1=>'włączone',
+            0 => 'wyłączone',
+            1 => 'włączone',
         )
     );
 
@@ -223,4 +234,96 @@ function ficticious_white_intro( $wp_customize ) {
         null
     );
 }
+
 add_action('customize_register', 'ficticious_white_intro');
+
+function ficticious_skills_image($wp_customize)
+{
+    include 'settings.php';
+    $wp_customize->add_section('ficticious_header_bg_section', array(
+        'title' => __('Tło nagłówka'),
+        'priority' => 40,
+        'description' => 'Obraz wyświetlany w nagłówku strony',
+        'panel' => 'ficticious_panel'
+    ));
+    $wp_customize->add_setting($FICTICIOUS_HEADER_BACKGROUND_IMAGE);
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'ficticious_header_bg', array(
+        'label' => __('Obraz tła'),
+        'section' => 'ficticious_header_bg_section',
+        'settings' => 'ficticious_header_bg',
+    )));
+}
+add_action('customize_register', 'ficticious_skills_image');
+
+function ficticious_skills($wp_customize)
+{
+    include 'settings.php';
+    $skills_section = 'skills_section';
+    $panel_name = 'ficticious_panel';
+
+    $wp_customize->add_section($skills_section, array(
+        'title' => 'Sekcja umiejętności',
+        'description' => 'Określ treści, jakie mają być widoczne w sekcji umiejętności',
+        'panel' => $panel_name
+    ));
+
+    addSettingToSection(
+        $wp_customize,
+        $FICTICIOUS_SKILLS_ENABLED,
+        1,
+        'radio',
+        $skills_section,
+        'Sekcja umiejętności',
+        array(
+            0 => 'wyłączona',
+            1 => 'włączona',
+        )
+    );
+
+    addSettingToSection(
+        $wp_customize,
+        $FICTICIOUS_SKILLS_TITLE,
+        'dwa słowa o mnie',
+        'text',
+        $skills_section,
+        'Treść nagłówka',
+        null
+    );
+
+    addSettingToSection(
+        $wp_customize,
+        $FICTICIOUS_SKILLS_DESCRIPTION,
+        'Jestem osobą ambitną i lubię wiedzieć jak najwięcej. Nie lubię też prosić się innych o pomoc, dlatego dążę do posiadania dużej ilości umiejętności i technicznego know-how, tak aby być jak najbardziej niezależny.
+        Nie zmienia to faktu, że dobrze pracuję w grupie, a koledzy i koleżanki zawsze chwalą sobie moje towarzystwo, zarówno ze względów praktycznych (dobra jakość pracy), jak też towarzyskich (niecodziennie - ale dobre poczucie humoru).',
+        'textarea',
+        $skills_section,
+        'Opis po lewej stronie',
+        null
+    );
+
+    $wp_customize->add_setting($FICTICIOUS_SKILLS_IMAGE);
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, $FICTICIOUS_SKILLS_IMAGE, array(
+        'label' => __('Obrazek w centrum'),
+        'section' => $skills_section,
+        'settings' => $FICTICIOUS_SKILLS_IMAGE,
+    )));
+
+    addSettingToSection(
+        $wp_customize,
+        $FICTICIOUS_SKILLS_LIST,
+        'JAVA / SPRING
+        Java 7+, Spring, Hibernate, Thymeleaf, REST, Mockito, JUnit, Thymeleaf
+        HTML / CSS
+        HTML 5, CSS 2+, SCSS, Bootstrap
+        JAVASCIPT
+        ES 2015+, Webpack, Babel, Npm, React, Type Script
+        INNE
+        Kubernetes, MySQL, Oracle DB, Amazon Web Services, Jenkins, Maven, Gradle, Android SDK... wymieniać dalej? :)'
+        , 'textarea',
+        $skills_section,
+        'Umiejętności (oddzielone znakiem nowej linii)',
+        null
+    );
+}
+
+add_action('customize_register', 'ficticious_skills');

@@ -16,3 +16,10 @@
     $FICTICIOUS_INTRO_TITLE='ficticious_intro_title';
     $FICTICIOUS_INTRO_INTRODUCTION='ficticious_intro_introduction';
     $FICTICIOUS_INTRO_CONTENT='ficticious_intro_content';
+
+    /*SKILLS SECTION*/
+    $FICTICIOUS_SKILLS_ENABLED='ficticious_skills_enabled';
+    $FICTICIOUS_SKILLS_TITLE='ficticious_skills_title';
+    $FICTICIOUS_SKILLS_DESCRIPTION='ficticious_skills_description';
+    $FICTICIOUS_SKILLS_IMAGE='ficticious_skills_image';
+    $FICTICIOUS_SKILLS_LIST='ficticious_skills_list';

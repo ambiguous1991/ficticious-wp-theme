@@ -50,58 +50,72 @@ $IS_INTRO_ENABLED = get_theme_mod($FICTICIOUS_INTRO_ENABLED);
 $INTRO_TITLE = get_theme_mod($FICTICIOUS_INTRO_TITLE);
 $INTRO_INTRODUCTION = get_theme_mod($FICTICIOUS_INTRO_INTRODUCTION);
 $INTRO_CONTENT = get_theme_mod($FICTICIOUS_INTRO_CONTENT);
+$CONTENT_ARRAY = explode("\n", $INTRO_CONTENT);
 
 if ($IS_INTRO_ENABLED) { ?>
     <div class="section bg-light">
         <div class="text-center">
-            <?php if($INTRO_TITLE) { ?>
+            <?php if ($INTRO_TITLE) { ?>
                 <div class="section__title"><?php echo $INTRO_TITLE; ?></div>
-            <?php } if($INTRO_INTRODUCTION) { ?>
+            <?php }
+            if ($INTRO_INTRODUCTION) { ?>
                 <h3 class="p-3"><?php echo $INTRO_INTRODUCTION; ?></h3>
-            <?php } if($INTRO_CONTENT) { ?>
-                <div class="p-5 pb-5"><?php echo $INTRO_CONTENT; ?></div>
-            <?php } ?>
+            <?php }
+            if ($INTRO_CONTENT) { ?>
+                <?php foreach ($CONTENT_ARRAY as $val) { ?>
+                    <div class="p-3"><?php echo $val; ?></div>
+                <?php }
+            } ?>
         </div>
     </div>
 <?php } ?>
 
+<?php
+
+$IS_SKILLS_ENABLED = get_theme_mod($FICTICIOUS_SKILLS_ENABLED);
+$SKILLS_TITLE = get_theme_mod($FICTICIOUS_SKILLS_TITLE);
+$SKILLS_DESCRIPTION_ARRAY = explode("\n", get_theme_mod($FICTICIOUS_SKILLS_DESCRIPTION));
+$SKILLS_IMAGE = get_theme_mod('ficticious_skills_image');
+$SKILLS_ARRAY = explode("\n", get_theme_mod($FICTICIOUS_SKILLS_LIST));
+
+if ($IS_SKILLS_ENABLED) { ?>
     <div class="section bg-dark">
         <div class="container text-center">
-            <div class="section__title">DWA SŁOWA O MNIE</div>
+            <?php if ($SKILLS_TITLE) { ?>
+                <div class="section__title"><?php echo $SKILLS_TITLE ?></div><?php } ?>
             <div class="row align-items-center">
-                <div class="col-12 col-lg-4 text-justify p-3">
-                    <p>Jestem osobą ambitną i lubię wiedzieć jak najwięcej. Nie lubię też prosić się innych o pomoc,
-                        dlatego dążę do posiadania dużej ilości umiejętności i technicznego know-how, tak aby być jak
-                        najbardziej niezależny.</p>
-                    <p>Nie zmienia to faktu, że dobrze pracuję w grupie, a koledzy i koleżanki zawsze chwalą sobie moje
-                        towarzystwo, zarówno ze względów praktycznych (dobra jakość pracy), jak też towarzyskich
-                        (niecodziennie - ale dobre poczucie humoru).</p>
-                </div>
-                <div class="col-12 col-lg-4 p-3"><img class="rounded-circle p-5 img-fluid"
-                                                      src="<?php echo get_theme_file_uri('resources/img/me.jpg') ?>"
-                                                      alt="My picture"></div>
+                <?php if ($SKILLS_DESCRIPTION_ARRAY) { ?>
+                    <div class="col-12 col-lg-4 text-justify p-3">
+                        <?php foreach ($SKILLS_DESCRIPTION_ARRAY as $value) { ?>
+                            <p><?php echo $value ?></p>
+                        <?php } ?>
+                    </div>
+                <?php } ?>
                 <div class="col-12 col-lg-4 p-3">
-                    <div>
-                        <h4 class="font-weight-bold">JAVA / SPRING</h4>
-                        <p>Java 7+, Spring, Hibernate, Thymeleaf, REST, Mockito, JUnit, Thymeleaf</p>
-                    </div>
-                    <div>
-                        <h4 class="font-weight-bold">HTML / CSS</h4>
-                        <p>HTML 5, CSS 2+, SCSS, Bootstrap</p>
-                    </div>
-                    <div>
-                        <h4 class="font-weight-bold">JAVASCIPT</h4>
-                        <p>ES 2015+, Webpack, Babel, Npm, React, Type Script</p>
-                    </div>
-                    <div>
-                        <h4 class="font-weight-bold">INNE</h4>
-                        <p>Kubernetes, MySQL, Oracle DB, Amazon Web Services, Jenkins, Maven, Gradle, Android SDK...
-                            wymieniać dalej? :)</p>
-                    </div>
+                    <?php if($SKILLS_IMAGE) {?>
+                    <img class="rounded-circle p-5 img-fluid"
+                         src="<?php echo esc_url($SKILLS_IMAGE);?>"
+                         alt="My picture">
+                    <?php } ?>
                 </div>
+                <?php if ($SKILLS_ARRAY) { ?>
+                    <div class="col-12 col-lg-4 p-3">
+                        <?php for ($i = 0; $i < count($SKILLS_ARRAY); $i++) {
+                            $currentItem = $SKILLS_ARRAY[$i];
+                            if ($i % 2 == 0) { ?>
+                                <div>
+                                <h4 class="font-weight-bold"><?php echo $currentItem ?></h4>
+                            <?php } else { ?>
+                                <p><?php echo $currentItem ?></p>
+                                </div>
+                            <?php }
+                        } ?>
+                    </div>
+                <?php } ?>
             </div>
         </div>
     </div>
+<?php } ?>
 
     <div class="section bg-green text-center">
         <div class="container-fluid">
