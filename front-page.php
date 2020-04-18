@@ -1,6 +1,6 @@
 <?php
 //powers the homepage
-
+include 'settings.php';
 get_header(); ?>
 
     <header class="header"
@@ -25,26 +25,45 @@ get_header(); ?>
         <div class="header__punchline">
             <h1><?php echo get_theme_mod('ficticious_headline'); ?></h1>
             <h2><?php echo get_theme_mod('ficticious_subheadline'); ?></h2>
-            <!--<div>I'm a synopsis. Lorem ipsum away.</div>-->
-            <?php if( get_theme_mod('ficticious_header_buttons') ) {?>
+            <?php if (get_theme_mod('ficticious_header_buttons')) { ?>
                 <div class="header__buttons">
-                    <button class="btn btn-primary ">I'm a button</button>
-                    <button class="btn btn-secondary ">I'm also a button</button>
+                    <?php
+                    $BUTTON_1_LABEL = get_theme_mod($FICTICIOUS_HEADER_BUTTON_1_LABEL);
+                    $BUTTON_2_LABEL = get_theme_mod($FICTICIOUS_HEADER_BUTTON_2_LABEL);
+                    $BUTTON_1_HREF = get_theme_mod($FICTICIOUS_HEADER_BUTTON_1_HREF);
+                    $BUTTON_2_HREF = get_theme_mod($FICTICIOUS_HEADER_BUTTON_2_HREF);
+                    if ($BUTTON_1_LABEL) { ?>
+                        <a class="btn btn-primary"
+                           href="<?php echo $BUTTON_1_HREF; ?>"><?php echo $BUTTON_1_LABEL; ?></a>
+                    <?php }
+                    if ($BUTTON_2_LABEL) { ?>
+                        <a class="btn btn-secondary"
+                           href="<?php echo $BUTTON_2_HREF; ?>"><?php echo $BUTTON_2_LABEL; ?></a>
+                    <?php } ?>
                 </div>
             <?php } ?>
         </div>
     </header>
 
+<?php
+$IS_INTRO_ENABLED = get_theme_mod($FICTICIOUS_INTRO_ENABLED);
+$INTRO_TITLE = get_theme_mod($FICTICIOUS_INTRO_TITLE);
+$INTRO_INTRODUCTION = get_theme_mod($FICTICIOUS_INTRO_INTRODUCTION);
+$INTRO_CONTENT = get_theme_mod($FICTICIOUS_INTRO_CONTENT);
+
+if ($IS_INTRO_ENABLED) { ?>
     <div class="section bg-light">
         <div class="text-center">
-            <div class="section__title">MIŁO CIĘ TUTAJ WIDZIEĆ</div>
-            <h3 class="p-3">Nazywam się Jakub Bartusiak</h3>
-            <div class="p-2">Jestem absolwentem Politechniki Wrocławskiej i programistą o szerokich zainteresowaniach.
-            </div>
-            <div class="pt-2 pb-5">Staram się stale rozwijać swoje umiejętności i codziennie uczyć się czegoś nowego.
-            </div>
+            <?php if($INTRO_TITLE) { ?>
+                <div class="section__title"><?php echo $INTRO_TITLE; ?></div>
+            <?php } if($INTRO_INTRODUCTION) { ?>
+                <h3 class="p-3"><?php echo $INTRO_INTRODUCTION; ?></h3>
+            <?php } if($INTRO_CONTENT) { ?>
+                <div class="p-5 pb-5"><?php echo $INTRO_CONTENT; ?></div>
+            <?php } ?>
         </div>
     </div>
+<?php } ?>
 
     <div class="section bg-dark">
         <div class="container text-center">
@@ -98,21 +117,20 @@ get_header(); ?>
                     $blogPosts->the_post(); ?>
                     <div class="col-12 col-sm-6 col-md-4 col-lg-2 mt-3 mb-3 p-3">
                         <?php
-                            if (has_post_thumbnail()) {
-                                the_post_thumbnail(
-                                        array(100,100),
-                                        array('class'=>'rounded-circle',
-                                            'style'=>'margin-bottom: 16px;')
-                                );
-                            }
-                            else {
-                                ?>
-                                <div class="rounded-circle thumbnail-icon">
-                                    <i class="far fa-newspaper"></i>
-                                </div>
-                                <?php
-                            }
+                        if (has_post_thumbnail()) {
+                            the_post_thumbnail(
+                                array(100, 100),
+                                array('class' => 'rounded-circle',
+                                    'style' => 'margin-bottom: 16px;')
+                            );
+                        } else {
                             ?>
+                            <div class="rounded-circle thumbnail-icon">
+                                <i class="far fa-newspaper"></i>
+                            </div>
+                            <?php
+                        }
+                        ?>
                         <h2><a style="color:inherit; font-weight: bold"
                                href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
                         <div class="meta-box">

@@ -43,15 +43,26 @@ function generate_nav($theme_location, $dropdowns, $container='div', $containerC
     return wp_nav_menu($menuArgs);
 }
 
+function ficticious_create_panel ( $wp_customize ){
+    $wp_customize->add_panel('ficticious_panel', array(
+        'title'=>__('Motyw Ficticious'),
+        'description'=>'Ustawienia motywu',
+        'priority'=>20
+    ));
+}
+add_action('customize_register', 'ficticious_create_panel');
+
 function ficticious_change_head_bg( $wp_customize ) {
+    include 'settings.php';
     $wp_customize->add_section( 'ficticious_header_bg_section' , array(
-        'title'       => __( 'Header Background', 'ficticious' ),
+        'title'       => __( 'Tło nagłówka' ),
         'priority'    => 40,
-        'description' => 'Enter your description that will show up in the theme customizer section of the dashboard',
+        'description' => 'Obraz wyświetlany w nagłówku strony',
+        'panel'=>'ficticious_panel'
     ) );
-    $wp_customize->add_setting( 'ficticious_header_bg' );
+    $wp_customize->add_setting( $FICTICIOUS_HEADER_BACKGROUND_IMAGE );
     $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'ficticious_header_bg', array(
-        'label'    => __( 'Background Image', 'ficticious' ),
+        'label'    => __( 'Obraz tła' ),
         'section'  => 'ficticious_header_bg_section',
         'settings' => 'ficticious_header_bg',
     ) ) );
@@ -71,45 +82,145 @@ function addSettingToSection ( $wp_customize, $setting_name, $setting_default, $
     ));
 }
 
-function ficticious_homepage( $wp_customize ) {
-    $section_name = 'ficticious_section';
-    $wp_customize->add_section($section_name, array(
-        'title'=> 'Treść strony głównej',
-        'priority' => 10,
-        'description'=>'Określ treści, jakie mają być widoczne na stronie głównej'
+function ficticious_header($wp_customize ) {
+    include 'settings.php';
+    $heading_section = 'heading_section';
+    $panel_name= 'ficticious_panel';
+
+    $wp_customize->add_section($heading_section, array(
+        'title'=> 'Treści w nagłówku',
+        'description'=>'Określ treści, jakie mają być widoczne w nagłówku strony',
+        'panel'=>$panel_name
     ));
 
     addSettingToSection(
         $wp_customize,
-        'ficticious_headline',
+        $FICTICIOUS_HEADER_HEADLINE,
         'Jestem nagłówkiem',
         'text',
-        $section_name,
+        $heading_section,
         'Tekst nagłówka',
         null
     );
 
     addSettingToSection(
         $wp_customize,
-        'ficticious_subheadline',
+        $FICTICIOUS_HEADER_SUBHEADLINE,
         'Jestem nagłówkiem drugiego poziomu',
         'text',
-        $section_name,
+        $heading_section,
         'Tekst nagłówka drugiego poziomu',
         null
     );
 
     addSettingToSection(
         $wp_customize,
-        'ficticious_header_buttons',
+        $FICTICIOUS_HEADER_BUTTONS_ENABLED,
         0,
         'radio',
-        $section_name,
+        $heading_section,
         'Przyciski',
         array (
             0=>'wyłączone',
             1=>'włączone'
         )
     );
+
+    addSettingToSection(
+        $wp_customize,
+        $FICTICIOUS_HEADER_BUTTON_1_LABEL,
+        'Jestem przyciskiem',
+        'text',
+        $heading_section,
+        'Treść przycisku 1',
+        null
+    );
+
+    addSettingToSection(
+        $wp_customize,
+        $FICTICIOUS_HEADER_BUTTON_1_HREF,
+        'https://someaddress',
+        'text',
+        $heading_section,
+        'Adres przekierowania przycisku 1',
+        null
+    );
+
+    addSettingToSection(
+        $wp_customize,
+        $FICTICIOUS_HEADER_BUTTON_2_LABEL,
+        'Również jestem przyciskiem',
+        'text',
+        $heading_section,
+        'Treść przycisku 2',
+        null
+    );
+
+    addSettingToSection(
+        $wp_customize,
+        $FICTICIOUS_HEADER_BUTTON_2_HREF,
+        'https://someaddress',
+        'text',
+        $heading_section,
+        'Adres przekierowania przycisku 2',
+        null
+    );
 }
-add_action('customize_register', 'ficticious_homepage');
+add_action('customize_register', 'ficticious_header');
+
+function ficticious_white_intro( $wp_customize ) {
+    include 'settings.php';
+    $intro_section = 'intro_section';
+    $panel_name= 'ficticious_panel';
+
+    $wp_customize->add_section($intro_section, array(
+        'title'=> 'Sekcja intro',
+        'description'=>'Określ treści, jakie mają być widoczne w sekcji intro',
+        'panel'=>$panel_name
+    ));
+
+    addSettingToSection(
+        $wp_customize,
+        $FICTICIOUS_INTRO_ENABLED,
+        1,
+        'radio',
+        $intro_section,
+        'Sekcja intro',
+        array(
+            0=>'wyłączone',
+            1=>'włączone',
+        )
+    );
+
+    addSettingToSection(
+        $wp_customize,
+        $FICTICIOUS_INTRO_TITLE,
+        'miło Cię tutaj widzieć',
+        'text',
+        $intro_section,
+        'Nagłówek',
+        null
+    );
+
+    addSettingToSection(
+        $wp_customize,
+        $FICTICIOUS_INTRO_INTRODUCTION,
+        'Nazywam się Jakub Bartusiak',
+        'text',
+        $intro_section,
+        'Wstęp',
+        null
+    );
+
+    addSettingToSection(
+        $wp_customize,
+        $FICTICIOUS_INTRO_CONTENT,
+        'Jestem absolwentem Politechniki Wrocławskiej i programistą o szerokich zainteresowaniach.
+        Staram się stale rozwijać swoje umiejętności i codziennie uczyć się czegoś nowego.',
+        'textarea',
+        $intro_section,
+        'Zawartość',
+        null
+    );
+}
+add_action('customize_register', 'ficticious_white_intro');
