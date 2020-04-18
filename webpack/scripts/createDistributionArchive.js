@@ -39,11 +39,13 @@ archive.directory(resources, 'resources', null);
 const phpFiles = [
     'class-wp-bootstrap-navwalker.php',
     'comments.php',
+    'controls.php',
     'footer.php',
     'front-page.php',
     'functions.php',
     'header.php',
     'index.php',
+    'settings.php',
     'single.php',
 ];
 

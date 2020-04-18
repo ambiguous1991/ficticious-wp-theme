@@ -62,7 +62,9 @@ while (have_posts()) {
             </small>
         </div>
         <div class="row">
-            <?php the_content(); ?>
+            <div class="singular-post-content">
+                <?php the_content(); ?>
+            </div>
         </div>
         <div class="row justify-content-end">
             <div class="blockquote-footer section__author">

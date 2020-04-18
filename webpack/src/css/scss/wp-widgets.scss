@@ -10,6 +10,15 @@
   }
 }
 
+.singular-post-content {
+  margin: 16px 0 16px 0;
+
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 16px;
+    margin-bottom: 24px;
+  }
+}
+
 .wp-block-quote {
   margin-left: $spacing;
   margin-bottom: 2*$spacing;
