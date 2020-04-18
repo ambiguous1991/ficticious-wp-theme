@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 const stickyOn = ({target}) => {
     const navbar = target.closest('.navbar');
     $(navbar).addClass('sticky');
@@ -16,7 +18,6 @@ const stickyOff = ({target}) => {
 const scrollStickyTop = () => {
     const navbar = $('.navbar');
     if (window.pageYOffset >= 1) {
-        console.log("adding sticky");
         navbar.addClass('sticky');
     } else {
         if (!navbar.find('.navbar-collapse').hasClass('show')) {
@@ -27,8 +28,6 @@ const scrollStickyTop = () => {
 };
 
 $(document).ready(() => {
-    console.log('document ready');
-
     const topNavbar = $('.navbar');
 
     window.onscroll = () => scrollStickyTop();

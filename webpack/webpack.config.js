@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
+    mode: 'production',
     entry: {
         main: ['./src/js/main.js', './src/css/main.scss'],
     },
@@ -51,5 +52,8 @@ module.exports = {
     ],
     watchOptions:  {
         ignored: /node_modules/,
+    },
+    externals: {
+        jquery: 'jQuery'
     }
 }
