@@ -9,10 +9,16 @@ function files_to_include()
     wp_enqueue_style('bootstrap', '//stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css');
     wp_enqueue_style('fonts', '//fonts.googleapis.com/css?family=Montserrat:400,900|Open+Sans:400,700|Roboto+Condensed:400,700&display=swap&subset=latin-ext');
     wp_enqueue_style('welcome-page-style', get_template_directory_uri() . '/resources/css/main.css', false, '1.0', 'all');
-    wp_enqueue_script('index-js', get_theme_file_uri('/resources/js/bundle.js'), NULL, '1.0', true);
+    wp_enqueue_script('index-js', get_theme_file_uri('/resources/js/main.js'), NULL, '1.0', true);
 }
 
 add_action('wp_enqueue_scripts', 'files_to_include');
+
+function ficticious_login_files_to_include() {
+    wp_enqueue_style( 'login-stylesheet', get_template_directory_uri() . '/resources/css/login.css', false, '1.0', 'all' );
+    wp_enqueue_script( 'login-script', get_theme_file_uri('/resources/js/login.js'), NULL, '1.0', true );
+}
+add_action( 'login_enqueue_scripts', 'ficticious_login_files_to_include' );
 
 function theme_features()
 {
@@ -75,6 +81,7 @@ function ficticious_change_head_bg($wp_customize)
         'settings' => 'ficticious_header_bg',
     )));
 }
+
 add_action('customize_register', 'ficticious_change_head_bg');
 
 function addSettingToSection($wp_customize, $setting_name, $setting_default, $setting_type, $setting_section, $label, $choices)
@@ -253,6 +260,7 @@ function ficticious_skills_image($wp_customize)
         'settings' => 'ficticious_header_bg',
     )));
 }
+
 add_action('customize_register', 'ficticious_skills_image');
 
 function ficticious_skills($wp_customize)
@@ -327,3 +335,15 @@ function ficticious_skills($wp_customize)
 }
 
 add_action('customize_register', 'ficticious_skills');
+
+function ficticious_register_post_types() {
+    register_post_type('experiment', array(
+        'public' => true,
+        'labels' => array(
+            'name' => 'Eksperymenty'
+        ),
+        'menu_icon' => 'data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgZm9jdXNhYmxlPSJmYWxzZSIgZGF0YS1wcmVmaXg9ImZhcyIgZGF0YS1pY29uPSJmbGFzayIgY2xhc3M9InN2Zy1pbmxpbmUtLWZhIGZhLWZsYXNrIGZhLXctMTQiIHJvbGU9ImltZyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNDQ4IDUxMiI+PHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNNDM3LjIgNDAzLjVMMzIwIDIxNVY2NGg4YzEzLjMgMCAyNC0xMC43IDI0LTI0VjI0YzAtMTMuMy0xMC43LTI0LTI0LTI0SDEyMGMtMTMuMyAwLTI0IDEwLjctMjQgMjR2MTZjMCAxMy4zIDEwLjcgMjQgMjQgMjRoOHYxNTFMMTAuOCA0MDMuNUMtMTguNSA0NTAuNiAxNS4zIDUxMiA3MC45IDUxMmgzMDYuMmM1NS43IDAgODkuNC02MS41IDYwLjEtMTA4LjV6TTEzNy45IDMyMGw0OC4yLTc3LjZjMy43LTUuMiA1LjgtMTEuNiA1LjgtMTguNFY2NGg2NHYxNjBjMCA2LjkgMi4yIDEzLjIgNS44IDE4LjRsNDguMiA3Ny42aC0xNzJ6Ij48L3BhdGg+PC9zdmc+'
+    ));
+}
+
+add_action('init', 'ficticious_register_post_types');

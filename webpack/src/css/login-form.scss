@@ -1,0 +1,64 @@
+@import "scss/colors";
+
+body {
+  background-color: $bg-light;
+  $highlight-color: $light-green;
+
+  #login {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: unset;
+    padding: unset;
+    transform: translateX(-50%) translateY(-50%);
+
+    h1 {
+      //display: none;
+    }
+
+    form {
+      box-shadow: 0 0 10px 2px $grey;
+      padding: 40px 20px 40px 20px;
+      border: 1px solid $grey;
+      border-radius: 10px;
+
+      label:not([for="rememberme"]) {
+        width: 100%;
+        margin-bottom: 12px;
+        text-align: center;
+        text-transform: lowercase;
+      }
+
+      input {
+        color: $highligh-color;
+        border: 1px solid $grey;
+
+        &:hover {
+          border: 1px solid $highlight-color;
+        }
+
+        &:focus {
+          border: 1px solid $highlight-color;
+          box-shadow: unset;
+        }
+      }
+
+      div.user-pass-wrap {
+        margin-bottom: 32px;
+      }
+
+      div button.button {
+        color: $grey;
+
+        &:hover {
+          color: $highlight-color;
+        }
+
+        &:focus {
+          border: 1px solid $highlight-color;
+          box-shadow: unset;
+        }
+      }
+    }
+  }
+}

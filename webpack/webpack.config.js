@@ -7,9 +7,10 @@ module.exports = {
     mode: 'production',
     entry: {
         main: ['./src/js/main.js', './src/css/main.scss'],
+        // login: ['./src/css/login-form.scss'],
     },
     output: {
-        filename: 'js/bundle.js',
+        filename: 'js/[name].js',
         path: path.resolve(__dirname, '../resources/')
     },
     module: {
