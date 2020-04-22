@@ -13,7 +13,7 @@ get_header(); ?>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <small>show </small><i class="fa fa-caret-down"></i>
+                    <small>rozwiń </small><i class="fa fa-caret-down"></i>
                 </button>
 
                 <?php

@@ -14,11 +14,13 @@ function files_to_include()
 
 add_action('wp_enqueue_scripts', 'files_to_include');
 
-function ficticious_login_files_to_include() {
-    wp_enqueue_style( 'login-stylesheet', get_template_directory_uri() . '/resources/css/login.css', false, '1.0', 'all' );
-    wp_enqueue_script( 'login-script', get_theme_file_uri('/resources/js/login.js'), NULL, '1.0', true );
+function ficticious_login_files_to_include()
+{
+    wp_enqueue_style('login-stylesheet', get_template_directory_uri() . '/resources/css/login.css', false, '1.0', 'all');
+    wp_enqueue_script('login-script', get_theme_file_uri('/resources/js/login.js'), NULL, '1.0', true);
 }
-add_action( 'login_enqueue_scripts', 'ficticious_login_files_to_include' );
+
+add_action('login_enqueue_scripts', 'ficticious_login_files_to_include');
 
 function theme_features()
 {
@@ -336,8 +338,10 @@ function ficticious_skills($wp_customize)
 
 add_action('customize_register', 'ficticious_skills');
 
-function ficticious_register_post_types() {
+function ficticious_register_post_types()
+{
     register_post_type('experiment', array(
+        'supports' => array('title', 'editor', 'excerpt', 'comments'),
         'public' => true,
         'labels' => array(
             'name' => 'Eksperymenty'

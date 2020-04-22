@@ -1,7 +1,4 @@
 <?php
-
-//powers generic blog listing
-
 get_header(); ?>
 
 <header class="header header--small"
@@ -39,9 +36,6 @@ while (have_posts()) {
                     <div class="breadcrumb-content"><a href="<?php echo site_url(); ?>"><i
                                     class="fas fa-home"></i><span>strona główna</span></a></div>
                 </li>
-                <li class="breadcrumb-container__item">
-                    <div class="breadcrumb-content"><a href="<?php echo site_url('/blog') ?>">blog</a></div>
-                </li>
                 <li class="breadcrumb-container__item active" aria-current="page">
                     <div class="breadcrumb-content">
                         <?php the_title() ?>
@@ -52,20 +46,34 @@ while (have_posts()) {
     </div>
 
     <div class="container flex-grow-1">
-    <div class="section section--small-padding-top text-justify section--generic">
-
-    <div class="container">
-        <div class="row mb-3">
-            <small class="text-muted">
-                opublikowano <?php the_time('j F Y'); ?> r. w
-                kategorii <strong><?php echo get_the_category_list(', ') ?></strong>
-            </small>
-        </div>
-        <div class="row">
+        <div class="section section--small-padding-top text-justify section--generic experiment-section">
+            <div class="container">
+                <div class="row mb-3">
+                    <small class="text-muted">
+                        opublikowano <?php the_time('j F Y'); ?> r.
+                    </small>
+                </div>
+            </div>
             <div class="singular-post-content">
                 <?php the_content(); ?>
             </div>
         </div>
+        <div class="alert alert-warning d-block d-md-none">
+            <h3>Uwaga!</h3>
+            <p>Ten projekt możesz zobaczyć na większym ekranie.</p>
+            <p>Możesz też zobaczyć projekt
+                <a class="text-info" href="<?php the_field('experiment_address') ?>">w nowym oknie</a>.
+            </p>
+        </div>
+    </div>
+
+    <div class="iframe-container">
+        <iframe id="experiment" class="d-none d-md-block experiment"
+                src="<?php the_field('experiment_address') ?>"></iframe>
+    </div>
+    <div class="container flex-grow-1">
+    <div class="section section--small-padding-top text-justify section--generic">
+    <div class="container">
         <div class="row justify-content-end">
             <div class="blockquote-footer section__author">
                 <span><?php the_author_posts_link(); ?></span>
@@ -74,10 +82,10 @@ while (have_posts()) {
         </div>
     </div>
     <?php
-    if ( comments_open() || get_comments_number() ) :
-    comments_template();
+    if (comments_open() || get_comments_number()) :
+        comments_template();
     endif;
- } ?>
+} ?>
     </div>
     </div>
 <?php

@@ -6,6 +6,7 @@
                 <h4 class="footer__title"><?php echo get_bloginfo('name'); ?></h4>
                 <div class="credits">
                     <p><strong>ficticious</strong> theme<br>crafted by Bartusiak</p>
+                    <small><a class="text-faded" href="/wp-login.php">zaloguj się</a></small>
                 </div>
             </div>
             <div class="col-12 col-md-6 mb-3 text-center text-md-right order-0 order-md-1">
