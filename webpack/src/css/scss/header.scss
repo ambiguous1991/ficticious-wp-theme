@@ -84,9 +84,13 @@
 
 .dropdown-menu.show {
   display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
   background-color: $bg-dark;
   color: $text-contrast-dark;
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
 }
 
 .dropdown-menu > .menu-item > .dropdown-item {
