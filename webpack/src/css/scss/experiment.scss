@@ -1,3 +1,5 @@
+@import 'variables';
+
 .iframe-container {
   iframe {
     display: block;
@@ -12,4 +14,31 @@
 
 .experiment-section {
   padding: 8px;
+
+  .github-panel {
+    color: #FFF;
+    background-color: $bg-dark;
+    padding: 8px 16px;
+    border: 1px solid lighten($bg-dark, 25%);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+    * {
+      margin: 0 16px;
+    }
+
+    i {
+      font-size: 2rem ;
+    }
+
+    input {
+      flex-grow: 1;
+      padding: 0 16px;
+      border: none;
+      border-radius: 8px;
+    }
+  }
 }

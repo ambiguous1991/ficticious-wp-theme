@@ -55,6 +55,13 @@ while (have_posts()) {
                 </div>
             </div>
             <div class="singular-post-content">
+                <div class="github-panel">
+                    <i class="fab fa-github"></i>
+                    <small>zobacz źródło na github</small>
+                    <input disabled type="text" value="<?php the_field('github_address') ?>">
+                    <a href="<?php the_field('github_address') ?>"
+                       class="btn btn-success text-white btn-sm">Przejdź</a>
+                </div>
                 <?php the_content(); ?>
             </div>
         </div>
