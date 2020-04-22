@@ -47,6 +47,7 @@ const phpFiles = [
     'index.php',
     'settings.php',
     'single.php',
+    'single-experiment.php',
 ];
 
 phpFiles.forEach(phpFile=>{
