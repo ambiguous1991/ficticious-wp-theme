@@ -4,7 +4,7 @@
   iframe {
     display: block;
     margin: auto;
-    border: none;
+    border: 1px solid $grey;
     border-radius: 16px;
     min-width: 1024px;
     min-height: 768px;
@@ -22,12 +22,21 @@
     border: 1px solid lighten($bg-dark, 25%);
     border-radius: 12px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: space-around;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+    }
 
     * {
-      margin: 0 16px;
+      margin: 8px 16px;
+
+      @media (min-width: 768px) {
+        margin: 0 16px;
+      }
     }
 
     i {
@@ -39,6 +48,11 @@
       padding: 0 16px;
       border: none;
       border-radius: 8px;
+      display: none;
+
+      @media (min-width: 768px) {
+        display: block;
+      }
     }
   }
 }
