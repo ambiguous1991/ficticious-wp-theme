@@ -36,6 +36,11 @@ while (have_posts()) {
                     <div class="breadcrumb-content"><a href="<?php echo site_url(); ?>"><i
                                     class="fas fa-home"></i><span>strona główna</span></a></div>
                 </li>
+                <li class="breadcrumb-container__item" aria-current="page">
+                    <div class="breadcrumb-content">
+                        <a href="<?php echo site_url(); ?>/experiment"><span>eksperymenty</span></a>
+                    </div>
+                </li>
                 <li class="breadcrumb-container__item active" aria-current="page">
                     <div class="breadcrumb-content">
                         <?php the_title() ?>

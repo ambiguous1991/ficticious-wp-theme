@@ -1,0 +1,16 @@
+@import "variables";
+
+.xl-padding-top-bottom {
+  padding-top: 10 * $spacing;
+  padding-bottom: 10 * $spacing;
+}
+
+.l-padding-top-bottom {
+  padding-top: 5 * $spacing;
+  padding-bottom: 5 * $spacing;
+}
+
+.s-padding-top-bottom {
+  padding-top: 3 * $spacing;
+  padding-bottom: 3 * $spacing;
+}

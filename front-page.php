@@ -131,21 +131,21 @@ if ($IS_SKILLS_ENABLED) { ?>
                     $blogPosts->the_post(); ?>
                     <div class="col-12 col-sm-6 col-md-4 col-lg-2 mt-3 mb-3 p-3 section__post">
                         <a class="post-thumbnail" href="<?php the_permalink(); ?>">
-                        <?php
-                        if (has_post_thumbnail()) {
-                            the_post_thumbnail(
-                                array(100, 100),
-                                array('class' => 'rounded-circle',
-                                    'style' => 'margin-bottom: 16px;')
-                            );
-                        } else {
-                            ?>
-                            <div class="rounded-circle thumbnail-icon">
-                                <i class="far fa-newspaper"></i>
-                            </div>
                             <?php
-                        }
-                        ?>
+                            if (has_post_thumbnail()) {
+                                the_post_thumbnail(
+                                    array(100, 100),
+                                    array('class' => 'rounded-circle',
+                                        'style' => 'margin-bottom: 16px;')
+                                );
+                            } else {
+                                ?>
+                                <div class="rounded-circle thumbnail-icon">
+                                    <i class="far fa-newspaper"></i>
+                                </div>
+                                <?php
+                            }
+                            ?>
                         </a>
                         <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
                         <div class="meta-box">
@@ -161,6 +161,26 @@ if ($IS_SKILLS_ENABLED) { ?>
                 <?php }
                 wp_reset_postdata();
                 ?>
+            </div>
+        </div>
+    </div>
+    <div class="section section--no-padding text-center">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-md-6 bg-dark text-white xl-padding-top-bottom">
+                    <div class="section__title">Ostatnie eksperymenty</div>
+                </div>
+                <div class="col-12 col-md-6 bg-light text-black xl-padding-top-bottom">
+                    <div class="section__title">Inne wiadomości</div>
+                    <div class="section__post section__post--inline l-padding-top-bottom">
+                        <div class="post-thumbnail">
+                            <div class="rounded-circle thumbnail-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                        </div>
+                        <h2>Jak na razie - cisza</h2>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

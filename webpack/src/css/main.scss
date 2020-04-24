@@ -7,6 +7,7 @@
 @import "scss/comments";
 @import "scss/single-post";
 @import "scss/experiment";
+@import "scss/utils";
 
 ::-moz-selection {
   color: $text-contrast-dark;
@@ -175,7 +176,7 @@ h1 {
   align-content: center;
   justify-content: center;
 
-  i.far {
+  i.far, i.fas {
     font-size: 2.5rem;
     color: #FFF;
   }
