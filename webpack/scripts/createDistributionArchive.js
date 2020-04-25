@@ -37,6 +37,7 @@ console.log(resources);
 archive.directory(resources, 'resources', null);
 
 const phpFiles = [
+    'archive-experiment.php',
     'class-wp-bootstrap-navwalker.php',
     'comments.php',
     'controls.php',
@@ -45,6 +46,7 @@ const phpFiles = [
     'functions.php',
     'header.php',
     'index.php',
+    'page.php',
     'settings.php',
     'single.php',
     'single-experiment.php',
