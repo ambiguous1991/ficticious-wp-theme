@@ -77,6 +77,10 @@ $large-screen-bg-color: $bg-dark;
 
     &--frontpage {
       border-radius: 100%;
+      max-width: 100px;
+      max-height: unset;
+      width: unset;
+      height:auto;
     }
 
     @media (min-width: 768px) {

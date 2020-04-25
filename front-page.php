@@ -134,7 +134,9 @@ if ($IS_SKILLS_ENABLED) { ?>
                             <?php
                             if (has_post_thumbnail()) { ?>
                                 <div class="post-thumbnail post-thumbnail--frontpage">
-                                    <img class="thumbnail-icon-image thumbnail-icon--frontpage" src="<?php echo get_the_post_thumbnail_url(); ?>">
+                                    <img alt="<?php echo get_the_post_thumbnail_caption() ?>"
+                                         class="thumbnail-icon-image thumbnail-icon--frontpage"
+                                         src="<?php echo get_the_post_thumbnail_url(); ?>">
                                 </div>
                                 <?php
                             } else {
@@ -170,10 +172,54 @@ if ($IS_SKILLS_ENABLED) { ?>
             <div class="row">
                 <div class="col-12 col-md-6 bg-dark text-white xl-padding-top-bottom">
                     <div class="section__title">Ostatnie eksperymenty</div>
+                    <?php
+                    $blogPosts = new WP_Query(array(
+                            'posts_per_page' => 3,
+                            'post_type' => 'experiment',
+                        )
+                    );
+
+                    while ($blogPosts->have_posts()) {
+                        $blogPosts->the_post(); ?>
+                        <div class="col-12 section__post mt-5 mb-5">
+                            <a class="text-white" href="<?php the_permalink(); ?>">
+                                <?php
+                                if (has_post_thumbnail()) { ?>
+                                    <div class="post-thumbnail post-thumbnail--frontpage">
+                                        <img alt="<?php get_the_post_thumbnail_caption() ?>"
+                                             class="thumbnail-icon-image thumbnail-icon-image--frontpage"
+                                             src="<?php echo get_the_post_thumbnail_url(); ?>">
+                                    </div>
+                                    <?php
+                                } else {
+                                    ?>
+                                    <div class="post-thumbnail post-thumbnail--frontpage">
+                                        <div class="thumbnail-icon--frontpage">
+                                            <i class="far fa-newspaper"></i>
+                                        </div>
+                                    </div>
+                                    <?php
+                                }
+                                ?>
+                            </a>
+                            <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+                            <div class="meta-box">
+                                autor: <?php the_author_posts_link(); ?>
+                            </div>
+                            <div>
+                                <?php echo wp_trim_words(get_the_content(), 10) ?>
+                                <div>
+                                    <small><a href="<?php the_permalink(); ?>"> czytaj dalej ></a></small>
+                                </div>
+                            </div>
+                        </div>
+                    <?php } ?>
+                    <a class="text-white" href="<?php echo get_post_type_archive_link('experiment') ?>">Zobacz
+                        wszystkie</a>
                 </div>
-                <div class="col-12 col-md-6 bg-light text-black xl-padding-top-bottom">
+                <div class="col-12 col-md-6 bg-light text-black xl-padding-top-bottom d-flex flex-column">
                     <div class="section__title">Inne wiadomości</div>
-                    <div class="section__post section__post--inline l-padding-top-bottom">
+                    <div class="section__post section__post--inline l-padding-top-bottom flex-grow-1">
                         <div class="post-thumbnail">
                             <div class="rounded-circle thumbnail-icon">
                                 <i class="fas fa-check"></i>

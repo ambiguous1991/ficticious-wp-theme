@@ -40,7 +40,8 @@ while (have_posts()) {
                                     class="fas fa-home"></i><span>strona główna</span></a></div>
                 </li>
                 <li class="breadcrumb-container__item">
-                    <div class="breadcrumb-content"><a href="<?php echo site_url('/blog') ?>">blog</a></div>
+                    <div class="breadcrumb-content"><a href="<?php echo get_post_type_archive_link('post') ?>">blog</a>
+                    </div>
                 </li>
                 <li class="breadcrumb-container__item active" aria-current="page">
                     <div class="breadcrumb-content">
@@ -74,10 +75,10 @@ while (have_posts()) {
         </div>
     </div>
     <?php
-    if ( comments_open() || get_comments_number() ) :
-    comments_template();
+    if (comments_open() || get_comments_number()) :
+        comments_template();
     endif;
- } ?>
+} ?>
     </div>
     </div>
 <?php

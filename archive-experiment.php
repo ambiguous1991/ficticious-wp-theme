@@ -37,7 +37,7 @@ get_header(); ?>
                                     class="fas fa-home"></i><span>strona główna</span></a></div>
                 </li>
                 <li class="breadcrumb-container__item">
-                    <div class="breadcrumb-content"><a href="<?php echo site_url('/experiment') ?>">eksperymenty</a>
+                    <div class="breadcrumb-content"><a href="<?php echo get_post_type_archive_link('experiment') ?>">eksperymenty</a>
                     </div>
                 </li>
             </ul>
@@ -53,7 +53,8 @@ get_header(); ?>
                     <div class="row">
                         <div class="text-center d-flex col-12 col-md-2 col-lg-3 align-items-center justify-content-center mb-3">
                             <?php if (get_the_post_thumbnail_url()) { ?>
-                                <img class="img-fluid" src="<?php echo get_the_post_thumbnail_url(); ?>"/>
+                                <img alt="<?php echo get_the_post_thumbnail_caption() ?>" class="img-fluid"
+                                     src="<?php echo get_the_post_thumbnail_url(); ?>"/>
                             <?php } else {
                                 ?>
                                 <div class="post-thumbnail text-center">

@@ -71,6 +71,9 @@
   }
 
   &__post {
+    a {
+      color: #FFF;
+    }
     &--inline {
       display: flex;
       flex-direction: row;

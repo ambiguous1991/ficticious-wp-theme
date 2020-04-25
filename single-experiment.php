@@ -38,7 +38,7 @@ while (have_posts()) {
                 </li>
                 <li class="breadcrumb-container__item" aria-current="page">
                     <div class="breadcrumb-content">
-                        <a href="<?php echo site_url(); ?>/experiment"><span>eksperymenty</span></a>
+                        <a href="<?php echo get_post_type_archive_link('experiment') ?>"><span>eksperymenty</span></a>
                     </div>
                 </li>
                 <li class="breadcrumb-container__item active" aria-current="page">
@@ -62,8 +62,8 @@ while (have_posts()) {
             <div class="singular-post-content">
                 <div class="github-panel">
                     <i class="fab fa-github"></i>
-                    <small>zobacz źródło na github</small>
-                    <input disabled type="text" value="<?php the_field('github_address') ?>">
+                    <label for="experiment_github_url">zobacz źródło na github</label>
+                    <input id="experiment_github_url" disabled type="text" value="<?php the_field('github_address') ?>">
                     <a href="<?php the_field('github_address') ?>"
                        class="btn btn-success text-white btn-sm">Przejdź</a>
                 </div>

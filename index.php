@@ -36,7 +36,7 @@ get_header(); ?>
                                     class="fas fa-home"></i><span>strona główna</span></a></div>
                 </li>
                 <li class="breadcrumb-container__item">
-                    <div class="breadcrumb-content"><a href="<?php echo site_url('/blog') ?>">Blog</a></div>
+                    <div class="breadcrumb-content">blog</div>
                 </li>
             </ul>
         </nav>
@@ -52,7 +52,8 @@ get_header(); ?>
                         <div class="d-flex col-12 col-md-2 col-lg-3 align-items-center justify-content-center mb-3">
                             <?php if (get_the_post_thumbnail_url()) { ?>
                                 <div class="post-thumbnail">
-                                    <img class="thumbnail-icon-image" src="<?php echo get_the_post_thumbnail_url(); ?>">
+                                    <img alt="<?php echo get_the_post_thumbnail_caption() ?>"
+                                         class="thumbnail-icon-image" src="<?php echo get_the_post_thumbnail_url(); ?>">
                                 </div>
                             <?php } else {
                                 ?>
