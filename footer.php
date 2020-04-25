@@ -6,7 +6,12 @@
                 <h4 class="footer__title"><?php echo get_bloginfo('name'); ?></h4>
                 <div class="credits">
                     <p><strong>ficticious</strong> theme<br>crafted by Bartusiak</p>
-                    <small><a class="text-faded" href="/wp-login.php">zaloguj się</a></small>
+                    <?php if (is_user_logged_in()) { ?>
+                        <small><a class="text-faded" href="<?php echo get_admin_url() ?>">zarządzanie treścią</a></small><br>
+                        <small><a class="text-faded" href="<?php echo wp_logout_url(get_site_url()) ?>">wyloguj się</a></small>
+                    <?php } else {?>
+                        <small><a class="text-faded" href="<?php echo wp_login_url() ?>">zaloguj się</a></small>
+                    <?php } ?>
                 </div>
             </div>
             <div class="col-12 col-md-6 mb-3 text-center text-md-right order-0 order-md-1">
