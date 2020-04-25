@@ -55,9 +55,9 @@
     text-align: center;
     padding: 0 8px 12px 8px;
     border-radius: 0;
-    order:2;
+    order: 2;
 
-    >a {
+    > a {
       color: $color-primary;
     }
 
@@ -74,6 +74,7 @@
     a {
       color: #FFF;
     }
+
     &--inline {
       display: flex;
       flex-direction: row;
@@ -84,9 +85,33 @@
         margin: 0 16px 0 16px;
       }
 
-      .thumbnail-icon{
-        margin:0;
+      .thumbnail-icon {
+        margin: 0;
       }
     }
   }
+}
+
+.bg-green {
+  background-color: $light-green;
+  color: $light-green-contrast-dark;
+
+  a {
+    color: $light-green-contrast-dark;
+    text-decoration: underline;
+
+    &:hover {
+      color: lighten($light-green-contrast-dark, 5%);
+    }
+  }
+}
+
+.bg-dark {
+  background-color: $bg-dark;
+  color: $text-contrast-dark;
+}
+
+.bg-light {
+  background-color: $bg-light;
+  color: $text-contrast-light;
 }

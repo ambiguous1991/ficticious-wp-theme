@@ -59,6 +59,7 @@
   opacity: 0;
   pointer-events: none;
 }
+
 .open > .dropdown-menu.show.fade {
   pointer-events: auto;
   opacity: 1;
@@ -76,9 +77,9 @@
 .navbar-expand-md .navbar-nav .dropdown-menu {
   @media (min-width: 768px) {
     position: fixed;
-    top:72px;
-    left:0;
-    width:100%;
+    top: 72px;
+    left: 0;
+    width: 100%;
   }
 }
 
@@ -96,7 +97,7 @@
 .dropdown-menu > .menu-item > .dropdown-item {
   color: $text-contrast-dark;
 
-  &:hover{
+  &:hover {
     background-color: unset;
     font-weight: bold;
   }
@@ -107,7 +108,7 @@
 }
 
 li.nav-item > ul {
-  border:none;
+  border: none;
   text-align: center;
   transition: all 1s;
   text-anchor: end;

@@ -1,5 +1,5 @@
-@import "variables";
 @import "colors";
+@import "variables";
 
 $border-radius: 3*$spacing-small;
 $small-screen-bg-color: #EEE;
@@ -26,7 +26,7 @@ $large-screen-bg-color: $bg-dark;
 
   .thumbnail-icon {
     margin: 32px auto;
-    width:100%;
+    width: 100%;
     border-radius: $border-radius;
     background-color: $small-screen-bg-color;
 
@@ -42,8 +42,8 @@ $large-screen-bg-color: $bg-dark;
       border-radius: 100%;
 
       i.far, i.fas {
-          font-size: 2.5rem;
-          color: #FFF;
+        font-size: 2.5rem;
+        color: #FFF;
       }
     }
 
@@ -80,7 +80,7 @@ $large-screen-bg-color: $bg-dark;
       max-width: 100px;
       max-height: unset;
       width: unset;
-      height:auto;
+      height: auto;
     }
 
     @media (min-width: 768px) {
