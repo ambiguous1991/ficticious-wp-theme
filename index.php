@@ -38,9 +38,6 @@ get_header(); ?>
                 <li class="breadcrumb-container__item">
                     <div class="breadcrumb-content"><a href="<?php echo site_url('/blog') ?>">Blog</a></div>
                 </li>
-                <!--                <li class="breadcrumb-container__item active" aria-current="page">-->
-                <!--                    <div class="breadcrumb-content">Library</div>-->
-                <!--                </li>-->
             </ul>
         </nav>
     </div>
@@ -52,37 +49,43 @@ get_header(); ?>
                 the_post(); ?>
                 <div class="container">
                     <div class="row">
-                        <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-                    </div>
-                    <div class="row mb-2">
-                        <small class="text-muted">
-                            opublikowano <?php the_time('j F Y'); ?> r. w
-                            kategorii <?php echo get_the_category_list(', ') ?>
-                        </small>
-                    </div>
-                    <div class="row">
-                        <?php the_excerpt(); ?>
-                    </div>
-                    <div class="row justify-content-end">
-                        <div class="blockquote-footer section__author">
-                            <span><?php the_author_posts_link(); ?></span>
-                            <i class="fas fa-user-circle"></i>
+                        <div class="d-flex col-12 col-md-2 col-lg-3 align-items-center justify-content-center mb-3">
+                            <?php if (get_the_post_thumbnail_url()) { ?>
+                                <div class="post-thumbnail">
+                                    <img class="thumbnail-icon-image" src="<?php echo get_the_post_thumbnail_url(); ?>">
+                                </div>
+                            <?php } else {
+                                ?>
+                                <div class="post-thumbnail text-center">
+                                    <div class="thumbnail-icon">
+                                        <i class="fas fa-image"></i>
+                                    </div>
+                                </div>
+                            <?php } ?>
+                        </div>
+                        <div class="col-12 offset-md-1 col-md-9 col-lg-8">
+                            <div class="row">
+                                <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+                            </div>
+                            <div class="row mb-2">
+                                <small class="text-muted">
+                                    opublikowano <?php the_time('j F Y'); ?> r. w
+                                    kategorii <?php echo get_the_category_list(', ') ?>
+                                </small>
+                            </div>
+                            <div class="row">
+                                <?php the_excerpt(); ?>
+                            </div>
+                            <div class="row justify-content-end">
+                                <div class="blockquote-footer section__author">
+                                    <span><?php the_author_posts_link(); ?></span>
+                                    <i class="fas fa-user-circle"></i>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             <?php } ?>
-
-            <!--            <div class="section__box">-->
-            <!--                <a data-toggle="collapse" href="#box-collapse" aria-expanded="false" class="section__title">zobacz-->
-            <!--                    więcej <i class="fas fa-caret-down"></i></a>-->
-            <!--                <ul class="collapse list-group" id="box-collapse">-->
-            <!--                    <li class="list-group-item"><a href="#">Cras justo odio</a></li>-->
-            <!--                    <li class="list-group-item"><a href="#">Dapibus ac facilisis in</a></li>-->
-            <!--                    <li class="list-group-item"><a href="#">Morbi leo risus</a></li>-->
-            <!--                    <li class="list-group-item"><a href="#">Porta ac consectetur ac</a></li>-->
-            <!--                    <li class="list-group-item"><a href="#">Vestibulum at eros</a></li>-->
-            <!--                </ul>-->
-            <!--            </div>-->
             <div class="container">
                 <?php echo paginate_links(); ?>
             </div>

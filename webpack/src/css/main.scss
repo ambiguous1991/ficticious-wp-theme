@@ -8,6 +8,7 @@
 @import "scss/single-post";
 @import "scss/experiment";
 @import "scss/utils";
+@import "scss/thumbnails";
 
 ::-moz-selection {
   color: $text-contrast-dark;
@@ -166,18 +167,3 @@ h1 {
   color: $text-contrast-light;
 }
 
-.thumbnail-icon {
-  height: 100px;
-  width: 100px;
-  margin: 0 auto 16px auto;
-  background-color: $bg-dark;
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  justify-content: center;
-
-  i.far, i.fas {
-    font-size: 2.5rem;
-    color: #FFF;
-  }
-}

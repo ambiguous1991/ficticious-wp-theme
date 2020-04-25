@@ -63,7 +63,7 @@ get_header(); ?>
                                 </div>
                             <?php } ?>
                         </div>
-                        <div class="col-12 col-md-10 col-lg-9">
+                        <div class="col-12 offset-md-1 col-md-9 col-lg-8">
                             <div class="row">
                                 <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
                             </div>

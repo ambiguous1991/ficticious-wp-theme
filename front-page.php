@@ -130,18 +130,19 @@ if ($IS_SKILLS_ENABLED) { ?>
                 while ($blogPosts->have_posts()) {
                     $blogPosts->the_post(); ?>
                     <div class="col-12 col-sm-6 col-md-4 col-lg-2 mt-3 mb-3 p-3 section__post">
-                        <a class="post-thumbnail" href="<?php the_permalink(); ?>">
+                        <a href="<?php the_permalink(); ?>">
                             <?php
-                            if (has_post_thumbnail()) {
-                                the_post_thumbnail(
-                                    array(100, 100),
-                                    array('class' => 'rounded-circle',
-                                        'style' => 'margin-bottom: 16px;')
-                                );
+                            if (has_post_thumbnail()) { ?>
+                                <div class="post-thumbnail post-thumbnail--frontpage">
+                                    <img class="thumbnail-icon-image thumbnail-icon--frontpage" src="<?php echo get_the_post_thumbnail_url(); ?>">
+                                </div>
+                                <?php
                             } else {
                                 ?>
-                                <div class="rounded-circle thumbnail-icon">
-                                    <i class="far fa-newspaper"></i>
+                                <div class="post-thumbnail post-thumbnail--frontpage">
+                                    <div class="thumbnail-icon--frontpage">
+                                        <i class="far fa-newspaper"></i>
+                                    </div>
                                 </div>
                                 <?php
                             }
