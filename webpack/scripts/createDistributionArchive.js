@@ -40,6 +40,7 @@ const phpFiles = [
     'archive-experiment.php',
     'class-wp-bootstrap-navwalker.php',
     'comments.php',
+    'contact-form.php',
     'controls.php',
     'footer.php',
     'front-page.php',
@@ -47,12 +48,15 @@ const phpFiles = [
     'header.php',
     'index.php',
     'page.php',
-    'settings.php',
     'single.php',
     'single-experiment.php',
+    'themeFeatures/customize.php',
+    'themeFeatures/post-types.php',
+    'themeFeatures/utilities.php',
+    'themeFeatures/variables.php'
 ];
 
-phpFiles.forEach(phpFile=>{
+phpFiles.forEach(phpFile => {
     archive.file(path.resolve(projectRoot, phpFile), {name: phpFile});
 })
 

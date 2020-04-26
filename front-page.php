@@ -1,6 +1,6 @@
 <?php
 //powers the homepage
-include 'settings.php';
+include 'themeFeatures/variables.php';
 get_header(); ?>
 
     <header class="header"
