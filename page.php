@@ -56,7 +56,6 @@ while (have_posts()) {
                 <div class="row">
                     <div class="singular-post-content">
                         <?php the_content(); ?>
-                    <?php include "contact-form.php"?>
                     </div>
                 </div>
             </div>
