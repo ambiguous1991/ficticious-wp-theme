@@ -1,0 +1,9 @@
+@import "colors";
+@import "variables";
+
+.contact-form {
+  background-color: $light-grey;
+  padding: 3*$spacing;
+  display: flex;
+  flex-direction: column;
+}

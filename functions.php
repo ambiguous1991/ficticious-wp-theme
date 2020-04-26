@@ -2,7 +2,8 @@
 
 function files_to_include()
 {
-    wp_enqueue_script('jquery-3.4.1', '//code.jquery.com/jquery-3.4.1.min.js', NULL, NULL, true);
+    wp_enqueue_script('jquery-3.4.1', '//code.jquery.com/jquery-3.4.1.min.js', NULL, NULL, false);
+    wp_enqueue_script('jquery-validate-1.19.1', '//cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js', NULL, NULL, false);
     wp_enqueue_script('popper-js', '//cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js', NULL, NULL, true);
     wp_enqueue_script('bootstrap-js', '//stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js', ['jquery', 'popper-js'], NULL, true);
     wp_enqueue_style('font-awesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css');
@@ -348,6 +349,8 @@ function ficticious_register_post_types()
             'singular_name' => 'Eksperyment',
             'add_new' => 'Dodaj eksperyment',
             'add_new_item' => 'Dodaj eksperyment',
+            'all-items' => 'Wszystkie eksperymenty',
+            'edit_item' => 'Edytuj eksperyment',
             'view_item' => 'Wyświetl eksperyment',
             'view_items' => 'Wyświetl eksperymenty',
             'search_items' => 'Przeszukaj eksperymenty',
