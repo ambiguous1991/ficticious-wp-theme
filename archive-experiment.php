@@ -24,8 +24,8 @@ get_header(); ?>
         </nav>
 
         <div class="header__punchline header__punchline--small header__punchline--right container">
-            <h1 style="margin-bottom: 0;">Eksperymenty</h1>
-            <h3 style="margin-bottom: 16px">próbki kodu i działające projekty demonstracyjne</h3>
+            <h1>Eksperymenty</h1>
+            <h3>próbki kodu i działające projekty demonstracyjne</h3>
         </div>
     </header>
 

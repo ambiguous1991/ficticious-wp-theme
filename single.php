@@ -4,12 +4,8 @@
 while (have_posts()) {
     the_post();
     get_header();
-    generatePageBanner(array
-    (
-        'title' => 'Sample title',
-        'subtitle' => 'Subtitle',
-        'small'=>true,
-        'bg-image-url'=>''
+    generatePageBanner(array(
+            'subtitle'=>'Test subtitle'
     ));
     ?>
 

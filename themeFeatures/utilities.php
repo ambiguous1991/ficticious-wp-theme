@@ -1,12 +1,30 @@
 <?php
-function generatePageBanner( $args ) {
+
+/** @var array $args = [
+ *     'title' => 'Some title', //page title to use
+ *     'subtitle' => 'Some subtitle', //page subtitle to use
+ *     'bg-image-url' => 'https://my-image.jpg/', //image url to use in banner
+ *     'large' => false //whether to use small banner variant
+ * ] */
+function generatePageBanner( array $args ) {
+    $PAGE_BANNER = get_field('page_banner')[ 'sizes' ][ 'page-banner' ];
+    $FALLBACK_PAGE_BANNER = esc_url(get_theme_mod('ficticious_header_bg'));
+
+    $TITLE = get_the_title();
+    $SUBTITLE = get_field('subtitle');
+    $BANNER_LARGE = false;
+
+    if ($args[ 'bg-image-url' ]) $PAGE_BANNER = $args[ 'bg-image-url' ];
+    if ($args[ 'title' ]) $TITLE = $args[ 'title' ];
+    if ($args[ 'subtitle' ]) $SUBTITLE = $args[ 'subtitle' ];
+    if ($args[ 'large' ]) $BANNER_LARGE = true;
+
     ?>
-    <header class="header header--small"
+    <header class="header <?php if (!$BANNER_LARGE) echo 'header--small' ?>"
             style="background-image: url('<?php
-            $PAGE_BANNER = get_field('page_banner')[ 'sizes' ][ 'page-banner' ];
-            if ($PAGE_BANNER) {
-                print_r($PAGE_BANNER);
-            } else echo esc_url(get_theme_mod('ficticious_header_bg')); ?>');">
+            if ($PAGE_BANNER) echo $PAGE_BANNER;
+            else echo $FALLBACK_PAGE_BANNER;
+            ?>');">
         <nav class="navbar navbar-expand-md navbar-dark fixed-top">
             <div class="container">
                 <a class="navbar-brand" href="<?php echo site_url(); ?>">
@@ -21,10 +39,8 @@ function generatePageBanner( $args ) {
             </div>
         </nav>
         <div class="header__punchline header__punchline--small header__punchline--right container">
-            <h1><?php
-                if ($args[ 'title' ]) {
-                    echo $args[ 'title' ];
-                } else the_title() ?></h1>
+            <h1><?php echo $TITLE; ?></h1>
+            <h3><?php echo $SUBTITLE ?></h3>
         </div>
     </header>
     <?php
