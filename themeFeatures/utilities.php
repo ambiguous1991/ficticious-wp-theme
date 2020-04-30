@@ -7,7 +7,7 @@
  *     'default-page-banner' => true, //use fallback page banner
  *     'large' => false //whether to use small banner variant
  * ] */
-function generatePageBanner( array $args ) {
+function generatePageBanner( array $args = NULL ) {
     $PAGE_BANNER = get_field('page_banner')[ 'sizes' ][ 'page-banner' ];
     $FALLBACK_PAGE_BANNER = esc_url(get_theme_mod('ficticious_header_bg'));
 
@@ -16,7 +16,7 @@ function generatePageBanner( array $args ) {
     $BANNER_LARGE = false;
 
     if ($args[ 'bg-image-url' ]) $PAGE_BANNER = $args[ 'bg-image-url' ];
-    if ($args[ 'default-page-banner']) $PAGE_BANNER = $FALLBACK_PAGE_BANNER;
+    if ($args[ 'default-page-banner' ]) $PAGE_BANNER = $FALLBACK_PAGE_BANNER;
     if ($args[ 'title' ]) $TITLE = $args[ 'title' ];
     if ($args[ 'subtitle' ]) $SUBTITLE = $args[ 'subtitle' ];
     if ($args[ 'large' ]) $BANNER_LARGE = true;
@@ -41,7 +41,7 @@ function generatePageBanner( array $args ) {
             </div>
         </nav>
         <div class="header__punchline header__punchline--right container
-        <?php if(!$BANNER_LARGE) echo 'header__punchline--small'?>">
+        <?php if (!$BANNER_LARGE) echo 'header__punchline--small' ?>">
             <h1><?php echo $TITLE; ?></h1>
             <h3><?php echo $SUBTITLE ?></h3>
         </div>

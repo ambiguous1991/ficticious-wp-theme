@@ -2,7 +2,7 @@
 //powers generic blog listing
 get_header();
 generatePageBanner(array(
-    'title' => 'Blog',
+    'title' => get_the_archive_title(),
     'default-page-banner' => true,
 ));
 ?>

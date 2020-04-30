@@ -3,7 +3,7 @@
 while ( have_posts() ) {
     the_post();
     get_header();
-    generatePageBanner(array());
+    generatePageBanner();
     ?>
 
     <div class="container">
