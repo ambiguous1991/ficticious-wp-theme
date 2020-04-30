@@ -37,11 +37,10 @@ console.log(resources);
 archive.directory(resources, 'resources', null);
 
 const phpFiles = [
+    'archive.php',
     'archive-experiment.php',
     'class-wp-bootstrap-navwalker.php',
     'comments.php',
-    'contact-form.php',
-    'controls.php',
     'footer.php',
     'front-page.php',
     'functions.php',
@@ -50,6 +49,9 @@ const phpFiles = [
     'page.php',
     'single.php',
     'single-experiment.php',
+    'template-parts/front-page/blog.php',
+    'template-parts/front-page/experiment.php',
+    'template-parts/contact-form.php',
     'themeFeatures/customize.php',
     'themeFeatures/post-types.php',
     'themeFeatures/utilities.php',
