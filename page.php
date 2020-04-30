@@ -1,34 +1,10 @@
 <?php
-// generic page template
-get_header(); ?>
-
-<?php
-while (have_posts()) {
-    the_post(); ?>
-
-    <header class="header header--small"
-            style="background-image: url('<?php echo esc_url(get_theme_mod('ficticious_header_bg')); ?>');">
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top">
-            <div class="container">
-                <a class="navbar-brand" href="<?php echo site_url(); ?>"><h2><?php echo get_bloginfo('name'); ?></h2>
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <small>rozwiń </small><i class="fa fa-caret-down"></i>
-                </button>
-
-                <?php
-                generate_nav('header_menu', true);
-                ?>
-
-            </div>
-        </nav>
-
-        <div class="header__punchline header__punchline--small header__punchline--right container">
-            <h1><?php the_title(); ?></h1>
-        </div>
-    </header>
+//powers single page
+while ( have_posts() ) {
+    the_post();
+    get_header();
+    generatePageBanner(array());
+    ?>
 
     <div class="container">
         <nav aria-label="breadcrumb">

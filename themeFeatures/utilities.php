@@ -4,6 +4,7 @@
  *     'title' => 'Some title', //page title to use
  *     'subtitle' => 'Some subtitle', //page subtitle to use
  *     'bg-image-url' => 'https://my-image.jpg/', //image url to use in banner
+ *     'default-page-banner' => true, //use fallback page banner
  *     'large' => false //whether to use small banner variant
  * ] */
 function generatePageBanner( array $args ) {
@@ -15,6 +16,7 @@ function generatePageBanner( array $args ) {
     $BANNER_LARGE = false;
 
     if ($args[ 'bg-image-url' ]) $PAGE_BANNER = $args[ 'bg-image-url' ];
+    if ($args[ 'default-page-banner']) $PAGE_BANNER = $FALLBACK_PAGE_BANNER;
     if ($args[ 'title' ]) $TITLE = $args[ 'title' ];
     if ($args[ 'subtitle' ]) $SUBTITLE = $args[ 'subtitle' ];
     if ($args[ 'large' ]) $BANNER_LARGE = true;
@@ -38,7 +40,8 @@ function generatePageBanner( array $args ) {
                 <?php generate_nav('header_menu', true); ?>
             </div>
         </nav>
-        <div class="header__punchline header__punchline--small header__punchline--right container">
+        <div class="header__punchline header__punchline--right container
+        <?php if(!$BANNER_LARGE) echo 'header__punchline--small'?>">
             <h1><?php echo $TITLE; ?></h1>
             <h3><?php echo $SUBTITLE ?></h3>
         </div>

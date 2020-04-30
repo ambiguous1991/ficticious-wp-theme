@@ -1,12 +1,9 @@
 <?php
-
-//powers generic blog listing
-while (have_posts()) {
+//powers single page post
+while ( have_posts() ) {
     the_post();
     get_header();
-    generatePageBanner(array(
-            'subtitle'=>'Test subtitle'
-    ));
+    generatePageBanner(array());
     ?>
 
     <div class="container">
