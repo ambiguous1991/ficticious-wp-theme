@@ -1,33 +1,33 @@
 import $ from 'jquery';
 
-const stickyOn = ({target}) => {
-    const navbar = target.closest('.navbar');
-    $(navbar).addClass('sticky');
-};
+$(document).ready(() => {
+    const stickyOn = ({target}) => {
+        const navbar = target.closest('.navbar');
+        $(navbar).addClass('sticky');
+    };
 
-const stickyOff = ({target}) => {
-    const navbar = target.closest('.navbar');
+    const stickyOff = ({target}) => {
+        const navbar = target.closest('.navbar');
 
-    if (window.pageYOffset <= 1) {
-        if (!$(navbar).find('.navbar-collapse').hasClass('show')) {
-            $(navbar).removeClass('sticky');
+        if (window.pageYOffset <= 1) {
+            if (!$(navbar).find('.navbar-collapse').hasClass('show')) {
+                $(navbar).removeClass('sticky');
+            }
         }
-    }
-};
+    };
 
-const scrollStickyTop = () => {
-    const navbar = $('.navbar');
-    if (window.pageYOffset >= 1) {
-        navbar.addClass('sticky');
-    } else {
-        if (!navbar.find('.navbar-collapse').hasClass('show')) {
-            navbar.removeClass('sticky');
-            navbar.find('.dropdown > ul').removeClass('show');
+    const scrollStickyTop = () => {
+        const navbar = $('.navbar');
+        if (window.pageYOffset >= 1) {
+            navbar.addClass('sticky');
+        } else {
+            if (!navbar.find('.navbar-collapse').hasClass('show')) {
+                navbar.removeClass('sticky');
+                navbar.find('.dropdown > ul').removeClass('show');
+            }
         }
-    }
-};
+    };
 
-const scrollListener = () => {
     const topNavbar = $('.navbar');
 
     window.onscroll = () => scrollStickyTop();
@@ -38,6 +38,4 @@ const scrollListener = () => {
         'show.bs.collapse': (event) => stickyOn(event),
         'hide.bs.collapse': (event) => stickyOff(event)
     });
-};
-
-window.addEventListener('scroll', scrollListener);
+});

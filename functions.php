@@ -3,6 +3,9 @@
 include "themeFeatures/customize.php";
 include "themeFeatures/post-types.php";
 include "themeFeatures/utilities.php";
+include "themeFeatures/maps-config.php";
+
+show_admin_bar(false);
 
 function files_to_include() {
     wp_enqueue_script('jquery-3.4.1', '//code.jquery.com/jquery-3.4.1.min.js', NULL, NULL, false);
@@ -19,7 +22,6 @@ add_action('wp_enqueue_scripts', 'files_to_include');
 
 function ficticious_login_files_to_include() {
     wp_enqueue_style('login-stylesheet', get_template_directory_uri() . '/resources/css/login.css', false, '1.0', 'all');
-    wp_enqueue_script('login-script', get_theme_file_uri('/resources/js/login.js'), NULL, '1.0', true);
 }
 add_action('login_enqueue_scripts', 'ficticious_login_files_to_include');
 

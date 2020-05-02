@@ -2,3 +2,4 @@
 resources/
 webpack/node_modules/
 dist/
+themeFeatures/API_KEYS.php

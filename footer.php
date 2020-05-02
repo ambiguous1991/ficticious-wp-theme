@@ -7,9 +7,10 @@
                 <div class="credits">
                     <p><strong>ficticious</strong> theme<br>crafted by Bartusiak</p>
                     <?php if (is_user_logged_in()) { ?>
-                        <small><a class="text-faded" href="<?php echo get_admin_url() ?>">zarządzanie treścią</a></small><br>
+                        <small><a class="text-faded" href="<?php echo get_admin_url() ?>">zarządzanie
+                                treścią</a></small><br>
                         <small><a class="text-faded" href="<?php echo wp_logout_url(get_site_url()) ?>">wyloguj się</a></small>
-                    <?php } else {?>
+                    <?php } else { ?>
                         <small><a class="text-faded" href="<?php echo wp_login_url() ?>">zaloguj się</a></small>
                     <?php } ?>
                 </div>
@@ -34,6 +35,16 @@
         </div>
     </div>
 </footer>
+
+<div id="search-overlay-container" class="search-overlay search-overlay--show">
+    <div class="search-overlay__input-container">
+        <input placeholder="Czego szukasz?" type="text" autofocus>
+        <a>x</a>
+    </div>
+    <div class="container">
+
+    </div>
+</div>
 
 <?php wp_footer() ?>
 
