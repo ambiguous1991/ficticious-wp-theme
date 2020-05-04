@@ -21,6 +21,17 @@ function captcha_verify( $response ) {
     return false;
 }
 
+function register_message ( $name, $email, $type, $message ) {
+    return wp_insert_post(array(
+        'post_type'=>'message',
+        'post_title'=>'Nowa wiadomość od ' . $email,
+        'post_category'=>array(get_cat_ID($type)),
+        'post_content'=>$name . ' pisze: ' . $message,
+        'post_status'=>'private',
+        'comment_status'=>'closed',
+    ));
+}
+
 function send_email( $address, $name, $message_type ) {
 
     $site_name = get_bloginfo('name');
@@ -30,7 +41,7 @@ function send_email( $address, $name, $message_type ) {
         $address,
         $subject,
         render_email($name, $subject, $message_type),
-        array('Content-Type: text/html; charset=UTF-8'),
+        array( 'Content-Type: text/html; charset=UTF-8' ),
         ''
     );
 }
@@ -41,8 +52,15 @@ function process_submitted_contact_form( WP_REST_Request $request ) {
 
     $name = $params[ 'name' ];
     $email = $params[ 'email' ];
-    $type = $params[ 'type' ] == 0 ? 'Oferta pracy' : 'Inne';
+    $type = $params[ 'type' ] == 0 ? 'Oferta pracy' : 'Inne wiadomości';
+    $message = $params [ 'message' ];
     $gRecaptchaResponse = $params[ 'g-recaptcha-response' ];
+
+    if (!$name || !$email || !$type || !$message) {
+        return new WP_Error('form_data_incomplete', 'Not all required fields submitted!', array(
+            'code'=>400
+        ));
+    }
 
     if (!$gRecaptchaResponse) {
         return new WP_Error('no_captcha', 'No captcha supplied!', array(
@@ -55,8 +73,18 @@ function process_submitted_contact_form( WP_REST_Request $request ) {
         ));
     }
 
-    $emailSentSuccess = send_email($email, $name, $type);
+    $messageRegisteredSuccess = register_message($name, $email, $type, $message);
+    if (!$messageRegisteredSuccess) {
+        return new WP_Error(
+            'email_error',
+            'Podczas wysyłania wiadomości wystąpił problem. Spróbuj ponownie później.',
+            array(
+                'code' => 500
+            )
+        );
+    }
 
+    $emailSentSuccess = send_email($email, $name, $type);
     if (!$emailSentSuccess) {
         return new WP_Error(
             'email_error',
