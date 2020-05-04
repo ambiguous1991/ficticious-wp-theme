@@ -27,7 +27,7 @@
                     <a class="github" href="https://github.com/jbartusiak">
                         <i class="fab fa-github-square"></i>
                     </a>
-                    <a class="gmail" href="mailto:jakub@bartusiak.com.pl">
+                    <a class="gmail" href="<?php echo get_site_url();?>/contact">
                         <i class="fas fa-envelope-square"></i>
                     </a>
                 </div>
