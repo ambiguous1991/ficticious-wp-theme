@@ -27,8 +27,12 @@ while ( have_posts() ) {
 
     <div class="container">
         <div class="row">
-            <div class="singular-post-content">
-                <?php the_content(); ?>
+            <div class="col-12 col-lg-6">
+                <div class="singular-post-content">
+                    <?php the_content(); ?>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
                 <?php get_template_part('template-parts/contact-form/contact-form'); ?>
             </div>
         </div>

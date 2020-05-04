@@ -7,3 +7,24 @@
   display: flex;
   flex-direction: column;
 }
+
+#progress {
+  display: none;
+  background-color: $light-grey;
+  padding: 120px 0;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+
+  &-loading {
+    color: #3B5998;
+  }
+  &-end {
+    display:none;
+    color: darken($light-green, 20);
+  }
+  &-error {
+    display:none;
+    color: lighten(darkred, 20);
+  }
+}

@@ -18,4 +18,4 @@ const search = () => {
     setupEventListeners();
 }
 
-export default search();
+// export default search();
