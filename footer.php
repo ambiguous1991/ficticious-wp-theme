@@ -36,7 +36,7 @@
     </div>
 </footer>
 
-<div id="search-overlay-container" class="search-overlay search-overlay--show">
+<div id="search-overlay-container" class="search-overlay">
     <div class="search-overlay__input-container">
         <input placeholder="Czego szukasz?" type="text" autofocus>
         <a>x</a>

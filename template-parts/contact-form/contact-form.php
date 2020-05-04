@@ -1,4 +1,22 @@
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script>
+    function captchaCallback() {
+        const form = $('#contactForm');
+        const serializedForm = form.serialize();
+        console.log(serializedForm);
+        $.post("/wp-json/ficticious/v1/contact",
+            serializedForm,
+            function (data) {
+                console.log("SUCCESS");
+                console.log(data);
+
+                $('#printf').text(data);
+            });
+    }
+</script>
+<div id="printf">
+
+</div>
 <form id="contactForm" class="contact-form" method="post" action="<?php echo get_permalink() ?>">
     <div class="form-group row">
         <div class="col-12 col-md-6">
@@ -27,47 +45,3 @@
          data-size="invisible"></div>
     <input type="submit" class="btn btn-primary btn-sm btn-block" value="wyślij"/>
 </form>
-<script>
-    function captchaCallback() {
-        const form = $('#contactForm');
-        const serializedForm = form.serialize();
-        console.log(serializedForm);
-        $.post("<?php echo get_permalink() ?>", function (data) {
-            return serializedForm;
-        });
-    }
-
-    $(document).ready(()=>{
-        function handleSubmit(form) {
-            console.log('Performing captcha validation');
-            grecaptcha.execute();
-        }
-
-        $('#contactForm').validate({
-            validClass: 'is-valid',
-            errorClass: 'is-invalid',
-            errorElement: 'div',
-            rules: {
-                name: {
-                    required: true,
-                },
-                email: {
-                    required: true,
-                    email: true,
-                },
-                message: {
-                    required: true,
-                }
-            },
-            messages: {
-                name: "Pole jest wymagane",
-                email: {
-                    required: "Pole jest wymagane",
-                    email: "Adres e-mail jest nieprawidłowy",
-                },
-                message: "Pole jest wymagane",
-            },
-            submitHandler: handleSubmit
-        })
-    });
-</script>

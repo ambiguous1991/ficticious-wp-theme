@@ -63,3 +63,11 @@ function generate_nav( $theme_location, $dropdowns, $container = 'div', $contain
 
     return wp_nav_menu($menuArgs);
 }
+
+function render_email( $to, $title, $topic ) {
+    ob_start();
+    include('mail.php');
+    $var=ob_get_contents();
+    ob_end_clean();
+    return $var;
+}
