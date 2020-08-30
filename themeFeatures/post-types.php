@@ -4,6 +4,7 @@ function ficticious_register_post_types() {
     register_post_type('experiment', array(
         'supports' => array( 'title', 'editor', 'excerpt', 'comments', 'thumbnail' ),
         'public' => true,
+        'show_in_rest' => true,
         'labels' => array(
             'name' => 'Eksperymenty',
             'singular_name' => 'Eksperyment',
@@ -23,6 +24,7 @@ function ficticious_register_post_types() {
         'supports' => array( 'title', 'editor' ),
         'public' => false,
         'show_ui' => true,
+        'show_in_rest' => true,
         'labels' => array(
             'name' => 'Wiadomości',
             'singular_name' => 'Wiadomość',
